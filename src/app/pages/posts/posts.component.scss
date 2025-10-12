@@ -1,0 +1,82 @@
+// Estilos específicos da página de posts
+:host {
+  display: block;
+}
+
+// Line clamp utilities
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Animações para os cards
+article {
+  transition: all 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+}
+
+// Estilos para inputs de busca
+input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+// Botões de filtro
+button {
+  transition: all 0.2s ease;
+}
+
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+// Badge de destaque
+.absolute {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+// Gradientes animados para placeholder de imagem
+.bg-gradient-to-br {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Responsividade melhorada
+@media (max-width: 768px) {
+  .flex-wrap {
+    gap: 0.5rem;
+  }
+  
+  article {
+    margin-bottom: 1rem;
+  }
+}
