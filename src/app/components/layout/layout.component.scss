@@ -1,0 +1,14 @@
+// Layout principal - componente wrapper
+:host {
+  display: block;
+}
+
+// Garantir que o layout ocupe toda a altura da tela
+.min-h-screen {
+  min-height: 100vh;
+}
+
+// Suporte adicional para navegadores antigos
+main {
+  flex: 1 0 auto;
+}

@@ -1,0 +1,22 @@
+// Estilos específicos do header (se necessário)
+// A maioria dos estilos está usando Tailwind CSS
+
+:host {
+  display: block;
+}
+
+// Transições suaves para o menu mobile
+nav {
+  transition: all 0.2s ease-in-out;
+}
+
+// Melhorias de acessibilidade
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

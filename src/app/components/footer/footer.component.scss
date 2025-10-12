@@ -1,0 +1,20 @@
+// Estilos específicos do footer
+:host {
+  display: block;
+}
+
+// Hover effects para links sociais
+a svg {
+  transition: transform 0.2s ease-in-out;
+}
+
+a:hover svg {
+  transform: scale(1.1);
+}
+
+// Melhorias de acessibilidade
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
