@@ -1,0 +1,41 @@
+// Estilos específicos da página home
+:host {
+  display: block;
+}
+
+// Truncate text para excerpt dos posts
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Animações sutis para os cards
+article {
+  transition: all 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+}
+
+// Estilo para os gradientes de placeholder
+.bg-gradient-to-br {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Melhorias de acessibilidade
+a:focus,
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
