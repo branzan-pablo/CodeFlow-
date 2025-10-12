@@ -1,7 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-home',
+  imports: [RouterLink],
   template: `
     <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -51,7 +54,7 @@ import { Component, signal } from '@angular/core';
 
         <!-- Grid de posts em destaque -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          @for (post of featuredPosts(); track post.id) {
+          @for (post of postService.featuredPosts(); track post.id) {
           <article
             class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
           >
@@ -64,9 +67,11 @@ import { Component, signal } from '@angular/core';
               </h3>
               <p class="text-gray-600 mb-4 line-clamp-3">{{ post.excerpt }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">{{ post.date }}</span>
+                <span class="text-sm text-gray-500">{{
+                  formatDate(post.publishedAt)
+                }}</span>
                 <a
-                  [href]="'/posts/' + post.slug"
+                  [routerLink]="['/posts', post.slug]"
                   class="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
                 >
                   Ler mais
@@ -87,31 +92,14 @@ import { Component, signal } from '@angular/core';
 })
 export class HomeComponent {
   protected readonly blogTitle = signal('Meu Blog');
+  protected readonly postService = inject(PostService);
 
-  protected readonly featuredPosts = signal([
-    {
-      id: 1,
-      title: 'Começando com Angular 20',
-      excerpt:
-        'Descubra as novidades do Angular 20 e como aproveitar ao máximo os novos recursos como signals e zoneless change detection.',
-      date: '12 de Outubro, 2025',
-      slug: 'comecando-com-angular-20',
-    },
-    {
-      id: 2,
-      title: 'SSR com Angular Universal',
-      excerpt:
-        'Aprenda a implementar Server-Side Rendering para melhorar a performance e SEO do seu aplicativo Angular.',
-      date: '10 de Outubro, 2025',
-      slug: 'ssr-com-angular-universal',
-    },
-    {
-      id: 3,
-      title: 'Tailwind CSS v4: O que há de novo',
-      excerpt:
-        'Explore as novidades do Tailwind CSS v4 e como usar a nova sintaxe @use para importações.',
-      date: '8 de Outubro, 2025',
-      slug: 'tailwind-css-v4-novidades',
-    },
-  ]);
+  protected formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+  }
 }
