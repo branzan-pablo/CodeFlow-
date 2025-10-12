@@ -1,0 +1,145 @@
+// Estilos para a página About
+:host {
+  display: block;
+}
+
+// Prose styles
+.prose {
+  color: #374151;
+  line-height: 1.7;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #111827;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.prose h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+}
+
+.prose ul {
+  margin-bottom: 1.5rem;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+// Grid responsivo para tecnologias
+.grid {
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Animações
+.bg-white,
+.bg-gradient-to-br {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Cards de tecnologia
+.border {
+  transition: all 0.3s ease;
+}
+
+.border:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+// Section de destaque (features)
+.bg-blue-50 {
+  border-left: 4px solid #3b82f6;
+}
+
+// Avatar do autor
+.bg-gradient-to-br {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+// Links sociais
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  transform: translateY(-1px);
+}
+
+// Botão CTA
+.bg-blue-600 {
+  transition: all 0.2s ease;
+}
+
+.bg-blue-600:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+// Estilos de foco para acessibilidade
+a:focus,
+button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// List styles
+.list-disc {
+  padding-left: 1rem;
+}
+
+.list-disc li {
+  margin-bottom: 0.5rem;
+}
+
+// Responsividade para seção do autor
+@media (max-width: 640px) {
+  .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .space-x-6 > * + * {
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+}
