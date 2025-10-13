@@ -138,7 +138,7 @@ export class PostService {
       id: 1,
       name: 'Pablo Ferreira',
       bio: 'Desenvolvedor Full-Stack apaixonado por tecnologia e inovação.',
-      avatar: '/assets/images/avatar.jpg',
+      avatar: '/images/avatar.svg',
       socialLinks: {
         github: 'https://github.com/PabloFBDev',
         linkedin: 'https://linkedin.com/in/pablo-ferreira-31a79524b',
@@ -321,7 +321,7 @@ O zoneless change detection representa o **futuro do Angular** - mais rápido, m
         category: categories[0],
         readTime: 8,
         featured: true,
-        coverImage: '/assets/images/angular-20-cover.jpg',
+        coverImage: '/images/angular-20-cover.svg',
         metaDescription:
           'Aprenda sobre zoneless change detection no Angular 20 e como usar signals para melhorar a performance da sua aplicação.',
       },
@@ -370,7 +370,7 @@ SSR é fundamental para aplicações Angular modernas que precisam de boa perfor
         category: categories[0],
         readTime: 12,
         featured: true,
-        coverImage: '/assets/images/ssr-cover.jpg',
+        coverImage: '/images/ssr-cover.svg',
         metaDescription:
           'Guia completo sobre Server-Side Rendering com Angular Universal para melhorar performance e SEO.',
       },
@@ -425,7 +425,7 @@ O Tailwind CSS v4 representa um grande salto em performance e desenvolver experi
         category: categories[2],
         readTime: 6,
         featured: true,
-        coverImage: '/assets/images/tailwind-v4-cover.jpg',
+        coverImage: '/images/tailwind-v4-cover.svg',
         metaDescription:
           'Descubra as novidades do Tailwind CSS v4, incluindo nova sintaxe e melhorias de performance.',
       },

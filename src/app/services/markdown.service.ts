@@ -190,10 +190,17 @@ export class MarkdownService {
         // Separadores
         .replace(/<hr>/g, '<hr class="my-8 border-gray-300">')
 
-        // Imagens
+        // Imagens - usar img tradicional para markdown renderizado
         .replace(
-          /<img /g,
-          '<img class="w-full h-auto rounded-lg shadow-md mb-6" '
+          /<img ([^>]*?)src="([^"]*?)"([^>]*?)>/g,
+          (match, beforeSrc, src, afterSrc) => {
+            // Extrair alt text se existir
+            const altMatch = match.match(/alt="([^"]*?)"/);
+            const alt = altMatch ? altMatch[1] : '';
+
+            // Usar img tradicional para todas as imagens no preview
+            return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md mb-6" loading="lazy" />`;
+          }
         )
     );
   }
