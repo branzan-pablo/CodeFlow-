@@ -1,6 +1,7 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
+import { MarkdownService } from '../../services/markdown.service';
 import { Post } from '../../models/post.interface';
 import { Title, Meta } from '@angular/platform-browser';
 
@@ -245,6 +246,7 @@ export class PostDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly postService = inject(PostService);
+  private readonly markdownService = inject(MarkdownService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
 
@@ -324,30 +326,6 @@ export class PostDetailComponent implements OnInit {
   }
 
   protected getFormattedContent(content: string): string {
-    // Converte markdown básico para HTML
-    // Em um projeto real, usaria uma biblioteca como marked.js
-    return content
-      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mb-4 mt-8">$1</h1>')
-      .replace(
-        /^## (.*$)/gm,
-        '<h2 class="text-2xl font-bold mb-3 mt-6">$1</h2>'
-      )
-      .replace(
-        /^### (.*$)/gm,
-        '<h3 class="text-xl font-bold mb-2 mt-4">$1</h3>'
-      )
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(
-        /`(.*?)`/g,
-        '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm">$1</code>'
-      )
-      .replace(
-        /```(\w+)?\n([\s\S]*?)```/g,
-        '<pre class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto mb-4"><code>$2</code></pre>'
-      )
-      .replace(/\n\n/g, '</p><p class="mb-4">')
-      .replace(/^/, '<p class="mb-4">')
-      .replace(/$/, '</p>');
+    return this.markdownService.parse(content);
   }
 }
