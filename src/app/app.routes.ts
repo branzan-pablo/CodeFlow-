@@ -24,6 +24,20 @@ export const routes: Routes = [
       import('./pages/about/about.component').then((m) => m.AboutComponent),
   },
   {
+    path: 'editor',
+    loadComponent: () =>
+      import('./pages/editor-demo/editor-demo.component').then(
+        (m) => m.EditorDemoComponent
+      ),
+  },
+  {
+    path: 'debug-images',
+    loadComponent: () =>
+      import('./components/debug-images/debug-images.component').then(
+        (m) => m.DebugImagesComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
