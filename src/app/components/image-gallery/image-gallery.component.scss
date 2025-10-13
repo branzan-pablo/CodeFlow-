@@ -17,6 +17,21 @@
   background: #94a3b8;
 }
 
+/* Garantir que as imagens tenham fundo claro */
+.aspect-square {
+  background-color: #f3f4f6 !important;
+}
+
+.aspect-square img {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Remover qualquer fundo escuro */
+.group {
+  background-color: transparent !important;
+}
+
 /* Animações suaves para hover */
 .group {
   transition: transform 0.2s ease-in-out;

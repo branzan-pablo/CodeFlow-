@@ -121,7 +121,7 @@ import {
         >
           <!-- Image -->
           <div
-            class="aspect-square bg-gray-100 flex items-center justify-center"
+            class="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden"
           >
             <img
               [src]="image.url"
@@ -130,44 +130,24 @@ import {
               loading="lazy"
               (error)="onImageError(image)"
               (load)="onImageLoad(image)"
+              style="background-color: transparent;"
             />
           </div>
 
-          <!-- Overlay -->
-          <div
-            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-200 flex items-center justify-center"
+          <!-- Delete button -->
+          <button
+            (click)="deleteImage(image, $event)"
+            class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
+            aria-label="Deletar imagem"
           >
-            @if (selectedImage() === image) {
-            <div class="text-white">
-              <svg
-                class="w-8 h-8 mx-auto"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-            }
-
-            <!-- Delete button -->
-            <button
-              (click)="deleteImage(image, $event)"
-              class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
-              aria-label="Deletar imagem"
-            >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
 
           <!-- Image Info -->
           <div
