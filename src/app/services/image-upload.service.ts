@@ -44,12 +44,12 @@ export class ImageUploadService {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // Criar URL temporária para preview (em produção seria URL do servidor)
-      const url = URL.createObjectURL(file);
+      const tempUrl = URL.createObjectURL(file);
 
       const uploadedImage: UploadedImage = {
         id: this.generateId(),
         name: file.name,
-        url: `/images/uploads/${this.generateFileName(file)}`, // URL correta sem /public
+        url: tempUrl, // Usar URL temporária para preview
         size: file.size,
         type: file.type,
         uploadedAt: new Date(),
@@ -170,6 +170,47 @@ export class ImageUploadService {
 
   // Mock data para desenvolvimento
   private getMockImages(): UploadedImage[] {
-    return [];
+    return [
+      {
+        id: 'img-external-1',
+        name: 'landscape.jpg',
+        url: 'https://picsum.photos/400/300?random=1',
+        size: 50000,
+        type: 'image/jpeg',
+        uploadedAt: new Date('2025-10-12'),
+        alt: 'Paisagem Natural',
+        caption: 'Bela paisagem de teste',
+      },
+      {
+        id: 'img-external-2',
+        name: 'architecture.jpg',
+        url: 'https://picsum.photos/400/300?random=2',
+        size: 85000,
+        type: 'image/jpeg',
+        uploadedAt: new Date('2025-10-11'),
+        alt: 'Arquitetura Moderna',
+        caption: 'Edifício contemporâneo',
+      },
+      {
+        id: 'img-external-3',
+        name: 'nature.jpg',
+        url: 'https://picsum.photos/400/300?random=3',
+        size: 75000,
+        type: 'image/jpeg',
+        uploadedAt: new Date('2025-10-10'),
+        alt: 'Natureza',
+        caption: 'Cena natural exuberante',
+      },
+      {
+        id: 'img-external-4',
+        name: 'city.jpg',
+        url: 'https://picsum.photos/400/300?random=4',
+        size: 92000,
+        type: 'image/jpeg',
+        uploadedAt: new Date('2025-10-09'),
+        alt: 'Vida Urbana',
+        caption: 'Movimento da cidade',
+      },
+    ];
   }
 }
