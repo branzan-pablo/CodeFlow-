@@ -318,6 +318,6 @@ export class ImageGalleryComponent {
   }
 
   onImageLoad(image: UploadedImage): void {
-    console.log('Imagem carregada com sucesso:', image.url, image);
+    // Image loaded successfully
   }
 }

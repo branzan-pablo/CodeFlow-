@@ -27,13 +27,9 @@
   backdrop-filter: none !important;
 }
 
-/* Remover qualquer fundo escuro */
-.group {
-  background-color: transparent !important;
-}
-
 /* Animações suaves para hover */
 .group {
+  background-color: transparent !important;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -48,20 +44,6 @@ input:focus {
   outline-offset: 2px;
 }
 
-/* Loading state para upload */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
 /* Drag and drop visual feedback */
 .border-dashed {
   transition: all 0.2s ease-in-out;
@@ -70,24 +52,4 @@ input:focus {
 .border-dashed:hover {
   border-color: #3b82f6;
   background-color: #f8fafc;
-}
-
-/* Grid responsivo melhorado */
-@media (max-width: 640px) {
-  .grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }

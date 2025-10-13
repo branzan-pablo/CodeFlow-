@@ -165,9 +165,7 @@ export class ImageUploadComponent {
   // Computed - pega as 8 imagens mais recentes
   protected readonly recentImages = computed(() => {
     const allImages = this.uploadService.images();
-    console.log('Todas as imagens:', allImages);
     const recent = allImages.slice(-8).reverse();
-    console.log('Imagens recentes (8 últimas):', recent);
     return recent;
   });
 
@@ -216,6 +214,6 @@ export class ImageUploadComponent {
   }
 
   protected onImageLoad(image: UploadedImage): void {
-    console.log('Imagem recente carregada com sucesso:', image.url, image);
+    // Image loaded successfully - could add analytics here
   }
 }

@@ -31,13 +31,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'debug-images',
-    loadComponent: () =>
-      import('./components/debug-images/debug-images.component').then(
-        (m) => m.DebugImagesComponent
-      ),
-  },
-  {
     path: '**',
     redirectTo: '',
   },
