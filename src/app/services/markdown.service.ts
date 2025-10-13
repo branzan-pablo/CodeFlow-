@@ -190,7 +190,7 @@ export class MarkdownService {
         // Separadores
         .replace(/<hr>/g, '<hr class="my-8 border-gray-300">')
 
-        // Imagens - usar img tradicional para markdown renderizado
+        // Imagens - preparado para NgOptimizedImage mas usando img tradicional no preview
         .replace(
           /<img ([^>]*?)src="([^"]*?)"([^>]*?)>/g,
           (match, beforeSrc, src, afterSrc) => {
@@ -198,7 +198,8 @@ export class MarkdownService {
             const altMatch = match.match(/alt="([^"]*?)"/);
             const alt = altMatch ? altMatch[1] : '';
 
-            // Usar img tradicional para todas as imagens no preview
+            // TODO: Implementar NgOptimizedImage quando renderizar em componentes
+            // Por enquanto usando img tradicional para preview de markdown
             return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md mb-6" loading="lazy" />`;
           }
         )
