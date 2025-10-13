@@ -1,12 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { marked } from 'marked';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MarkdownService {
+  private platformId = inject(PLATFORM_ID);
+  private prismLoaded = false;
+
   constructor() {
     this.configureMarked();
+    this.loadPrism();
   }
 
   /**
@@ -20,10 +25,79 @@ export class MarkdownService {
     try {
       const html = marked(markdownContent) as string;
       // Adiciona classes CSS básicas ao HTML gerado
-      return this.addTailwindClasses(html);
+      const styledHtml = this.addTailwindClasses(html);
+
+      // Aplica syntax highlighting se estiver no browser
+      if (isPlatformBrowser(this.platformId) && this.prismLoaded) {
+        this.highlightCode(styledHtml);
+      }
+
+      return styledHtml;
     } catch (error) {
       console.error('Erro ao processar markdown:', error);
       return markdownContent; // Fallback para o conteúdo original
+    }
+  }
+
+  /**
+   * Carrega Prism.js dinamicamente
+   */
+  private async loadPrism(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId) || this.prismLoaded) {
+      return;
+    }
+
+    try {
+      // Importação dinâmica para evitar problemas com SSR
+      const Prism = await import('prismjs');
+
+      // Carregar linguagens mais comuns usando require dinâmico
+      // @ts-ignore - Prism components não têm tipos específicos
+      await import('prismjs/components/prism-typescript.min.js');
+      // @ts-ignore
+      await import('prismjs/components/prism-javascript.min.js');
+      // @ts-ignore
+      await import('prismjs/components/prism-css.min.js');
+      // @ts-ignore
+      await import('prismjs/components/prism-scss.min.js');
+      // @ts-ignore
+      await import('prismjs/components/prism-json.min.js');
+      // @ts-ignore
+      await import('prismjs/components/prism-bash.min.js');
+
+      this.prismLoaded = true;
+      console.log('Prism.js carregado com sucesso');
+    } catch (error) {
+      console.warn('Falha ao carregar Prism.js:', error);
+    }
+  }
+
+  /**
+   * Aplica syntax highlighting usando Prism.js
+   */
+  private highlightCode(html: string): void {
+    if (!isPlatformBrowser(this.platformId) || !this.prismLoaded) {
+      return;
+    }
+
+    // Usar setTimeout para garantir que o DOM foi atualizado
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && (window as any).Prism) {
+        (window as any).Prism.highlightAll();
+      }
+    }, 100);
+  }
+
+  /**
+   * Método público para highlight manual após inserção no DOM
+   */
+  highlightAllCode(): void {
+    if (
+      isPlatformBrowser(this.platformId) &&
+      typeof window !== 'undefined' &&
+      (window as any).Prism
+    ) {
+      (window as any).Prism.highlightAll();
     }
   }
 
@@ -79,16 +153,20 @@ export class MarkdownService {
           '<a class="text-blue-600 hover:text-blue-800 transition-colors underline" '
         )
 
-        // Código inline
+        // Código inline (não deve ser processado pelo Prism)
         .replace(
           /<code>/g,
           '<code class="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">'
         )
 
-        // Blocos de código
+        // Blocos de código com Prism.js
+        .replace(
+          /<pre><code class="language-(\w+)">/g,
+          '<div class="relative mb-6"><pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto line-numbers"><code class="language-$1">'
+        )
         .replace(
           /<pre><code>/g,
-          '<div class="relative mb-6"><pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code>'
+          '<div class="relative mb-6"><pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto"><code class="language-plaintext">'
         )
         .replace(/<\/code><\/pre>/g, '</code></pre></div>')
 

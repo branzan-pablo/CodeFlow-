@@ -1,4 +1,11 @@
-import { Component, signal, computed, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  signal,
+  computed,
+  inject,
+  OnInit,
+  AfterViewChecked,
+} from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { MarkdownService } from '../../services/markdown.service';
@@ -242,13 +249,15 @@ import { Title, Meta } from '@angular/platform-browser';
   `,
   styleUrl: './post-detail.component.scss',
 })
-export class PostDetailComponent implements OnInit {
+export class PostDetailComponent implements OnInit, AfterViewChecked {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly postService = inject(PostService);
   private readonly markdownService = inject(MarkdownService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
+
+  private highlightApplied = false;
 
   protected readonly post = signal<Post | null>(null);
 
@@ -271,11 +280,22 @@ export class PostDetailComponent implements OnInit {
       if (foundPost) {
         this.post.set(foundPost);
         this.updateMetaTags(foundPost);
+        this.highlightApplied = false; // Reset flag for new post
       } else {
         this.post.set(null);
         this.router.navigate(['/posts']);
       }
     });
+  }
+
+  ngAfterViewChecked(): void {
+    // Aplica syntax highlighting após a view ser atualizada
+    if (this.post() && !this.highlightApplied) {
+      setTimeout(() => {
+        this.markdownService.highlightAllCode();
+        this.highlightApplied = true;
+      }, 100);
+    }
   }
 
   private updateMetaTags(post: Post): void {
