@@ -31,6 +31,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'newsletter',
+    loadComponent: () =>
+      import('./pages/newsletter/newsletter-page.component').then(
+        (m) => m.NewsletterPageComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
