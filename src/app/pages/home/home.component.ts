@@ -1,10 +1,11 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
+import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, NewsletterComponent],
   template: `
     <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -87,6 +88,9 @@ import { PostService } from '../../services/post.service';
         </div>
       </div>
     </section>
+
+    <!-- Newsletter Section -->
+    <app-newsletter [source]="'homepage'" />
   `,
   styleUrl: './home.component.scss',
 })

@@ -11,10 +11,11 @@ import { PostService } from '../../services/post.service';
 import { MarkdownService } from '../../services/markdown.service';
 import { Post } from '../../models/post.interface';
 import { Title, Meta } from '@angular/platform-browser';
+import { NewsletterCompactComponent } from '../../components/newsletter/newsletter-compact.component';
 
 @Component({
   selector: 'app-post-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, NewsletterCompactComponent],
   template: `
     @if (post(); as currentPost) {
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -218,6 +219,11 @@ import { Title, Meta } from '@angular/platform-browser';
         </a>
       </nav>
     </article>
+
+    <!-- Newsletter Section -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <app-newsletter-compact [source]="'post-detail'" />
+    </div>
     } @else {
     <!-- Post not found -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
