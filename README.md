@@ -65,7 +65,7 @@ src/app/
 
 ### Pré-requisitos
 
-- Node.js 20+ 
+- Node.js 20+
 - npm ou yarn
 
 ### Instalação
@@ -110,13 +110,13 @@ npm test -- --code-coverage
 
 ## 📦 Scripts Disponíveis
 
-| Script | Descrição |
-|--------|-----------|
-| `npm start` | Inicia servidor de desenvolvimento |
-| `npm run build` | Build de produção com SSR |
-| `npm run serve:ssr:blog` | Serve aplicação SSR em produção |
-| `npm test` | Executa testes unitários com Karma |
-| `npm run watch` | Build em modo watch |
+| Script                   | Descrição                          |
+| ------------------------ | ---------------------------------- |
+| `npm start`              | Inicia servidor de desenvolvimento |
+| `npm run build`          | Build de produção com SSR          |
+| `npm run serve:ssr:blog` | Serve aplicação SSR em produção    |
+| `npm test`               | Executa testes unitários com Karma |
+| `npm run watch`          | Build em modo watch                |
 
 ## 🎯 Features Detalhadas
 
@@ -161,10 +161,10 @@ Configure as seguintes variáveis antes do deploy:
 
 ```typescript
 // src/app/services/seo.service.ts
-const baseUrl = 'https://seu-dominio.com'; // Altere para seu domínio
+const baseUrl = "https://seu-dominio.com"; // Altere para seu domínio
 
 // src/app/services/newsletter.service.ts
-emailjs.init('YOUR_PUBLIC_KEY'); // Configure EmailJS
+emailjs.init("YOUR_PUBLIC_KEY"); // Configure EmailJS
 ```
 
 ### EmailJS Setup
@@ -227,7 +227,7 @@ vercel --prod
 
 **Pablo Ferreira**
 
-- Desenvolvedor Front-End Sênior | Angular Expert
+- Desenvolvedor Front-End Sênior
 - 9+ anos de experiência em desenvolvimento frontend
 - 12 anos de trajetória em tecnologia
 
