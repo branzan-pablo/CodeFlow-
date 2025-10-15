@@ -13,7 +13,7 @@ import { NewsletterService } from '../../services/newsletter.service';
       <div class="max-w-2xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-6">
-          <h3 class="text-xl font-bold mb-2">📧 Gostou do artigo?</h3>
+          <h3 class="text-xl font-bold mb-2">Gostou do artigo?</h3>
           <p class="text-blue-100">
             Assine nossa newsletter e receba mais conteúdo como este toda
             semana!
@@ -97,7 +97,8 @@ import { NewsletterService } from '../../services/newsletter.service';
               class="mt-0.5 h-3 w-3 text-white border-blue-300 rounded focus:ring-white focus:ring-1"
             />
             <label for="compact-consent">
-              Concordo em receber emails da newsletter.
+              Eu autorizo o CodeFlow Angular a processar meu endereço de e-mail
+              para fins de envio da newsletter.
               <span class="underline cursor-pointer"
                 >Política de Privacidade</span
               >

@@ -12,10 +12,8 @@ import { Component, signal } from '@angular/core';
               {{ title() }}
             </h3>
             <p class="text-gray-600 text-sm leading-relaxed">
-              Este é o espaço perfeito para quem quer aprender Angular de forma
-              prática, descobrir dicas e melhores práticas, explorar técnicas
-              avançadas e ficar sempre por dentro das novidades e tendências do
-              mundo front-end.
+              “Mil cairão ao teu lado, e dez mil à tua direita, mas tu não serás
+              atingido.”
             </p>
           </div>
 
