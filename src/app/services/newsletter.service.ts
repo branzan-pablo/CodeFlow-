@@ -198,13 +198,6 @@ export class NewsletterService {
   }
 
   /**
-   * Retorna lista de inscritos (apenas para admin)
-   */
-  getSubscribers(): string[] {
-    return Array.from(this.subscribers);
-  }
-
-  /**
    * Valida formato de email
    */
   private isValidEmail(email: string): boolean {
