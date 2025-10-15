@@ -1,4 +1,11 @@
-import { Injectable } from '@angular/core';
+import {
+  Injectable,
+  signal,
+  computed,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import emailjs from '@emailjs/browser';
 
 export interface NewsletterSubscription {
@@ -17,6 +24,8 @@ export interface EmailConfig {
   providedIn: 'root',
 })
 export class NewsletterService {
+  private platformId = inject(PLATFORM_ID);
+
   // Configuração EmailJS (você configurará depois)
   private readonly emailConfig: EmailConfig = {
     serviceId: 'YOUR_SERVICE_ID', // Configurar no EmailJS
@@ -98,15 +107,25 @@ export class NewsletterService {
   private async sendConfirmationEmail(
     subscription: NewsletterSubscription
   ): Promise<void> {
+    // Só tenta enviar email no browser
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const baseUrl =
+      typeof window !== 'undefined'
+        ? window.location.origin
+        : 'https://your-domain.com';
+
     const templateParams = {
       to_email: subscription.email,
       to_name: subscription.email.split('@')[0], // Usa parte antes do @
       blog_name: 'PabloFBDev Blog',
-      blog_url: window.location.origin,
+      blog_url: baseUrl,
       subscription_date: subscription.timestamp.toLocaleDateString('pt-BR'),
-      unsubscribe_url: `${
-        window.location.origin
-      }/newsletter/unsubscribe?email=${encodeURIComponent(subscription.email)}`,
+      unsubscribe_url: `${baseUrl}/newsletter/unsubscribe?email=${encodeURIComponent(
+        subscription.email
+      )}`,
     };
 
     await emailjs.send(
@@ -224,7 +243,10 @@ export class NewsletterService {
    * Salva lista no localStorage
    */
   private saveSubscribers(): void {
-    if (typeof localStorage !== 'undefined') {
+    if (
+      isPlatformBrowser(this.platformId) &&
+      typeof localStorage !== 'undefined'
+    ) {
       const subscriberList = Array.from(this.subscribers);
       localStorage.setItem(
         'newsletter-subscribers',
@@ -237,7 +259,10 @@ export class NewsletterService {
    * Carrega lista do localStorage
    */
   private loadSubscribers(): void {
-    if (typeof localStorage !== 'undefined') {
+    if (
+      isPlatformBrowser(this.platformId) &&
+      typeof localStorage !== 'undefined'
+    ) {
       const stored = localStorage.getItem('newsletter-subscribers');
       if (stored) {
         try {
