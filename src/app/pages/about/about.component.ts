@@ -22,100 +22,162 @@ import { RouterLink } from '@angular/router';
             Sobre este projeto
           </h2>
 
-          <p class="text-gray-600 mb-6">
-            Este blog foi criado utilizando as mais recentes tecnologias web,
-            incluindo
-            <strong>Angular 20</strong> com zoneless change detection,
-            <strong>Server-Side Rendering (SSR)</strong>, e
-            <strong>Tailwind CSS v4</strong>. O projeto serve como demonstração
-            das melhores práticas de desenvolvimento frontend moderno.
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            O <strong>CodeFlow Angular</strong> é um blog moderno desenvolvido com as mais 
+            recentes tecnologias web, demonstrando as melhores práticas de desenvolvimento 
+            frontend. Construído com <strong>Angular 20</strong> e <strong>Tailwind CSS v4</strong>, 
+            o projeto implementa arquitetura avançada com SSR, otimizações de performance e 
+            funcionalidades completas de um sistema de blog profissional.
           </p>
 
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            Tecnologias utilizadas
+            🎯 Stack Tecnológico
           </h3>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="border border-gray-200 rounded-lg p-4">
-              <h4 class="font-semibold text-gray-900 mb-2">Frontend</h4>
-              <ul class="text-gray-600 space-y-1">
-                <li>• Angular 20 (Zoneless)</li>
-                <li>• TypeScript 5.5+</li>
-                <li>• Signals para gerenciamento de estado</li>
-                <li>• Standalone Components</li>
+            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">⚡</span>
+                <h4 class="font-semibold text-gray-900">Core Framework</h4>
+              </div>
+              <ul class="text-gray-600 space-y-2 text-sm">
+                <li>• <strong>Angular 20</strong> com Zoneless Change Detection</li>
+                <li>• <strong>TypeScript 5.8+</strong> para type safety</li>
+                <li>• <strong>Signals</strong> para gerenciamento de estado reativo</li>
+                <li>• <strong>Standalone Components</strong> (sem NgModules)</li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-4">
-              <h4 class="font-semibold text-gray-900 mb-2">Styling & UX</h4>
-              <ul class="text-gray-600 space-y-1">
-                <li>• Tailwind CSS v4</li>
-                <li>• Design responsivo</li>
-                <li>• Acessibilidade (WCAG)</li>
-                <li>• Animações performáticas</li>
+            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🎨</span>
+                <h4 class="font-semibold text-gray-900">Styling & UI</h4>
+              </div>
+              <ul class="text-gray-600 space-y-2 text-sm">
+                <li>• <strong>Tailwind CSS v4</strong> com nova sintaxe @use</li>
+                <li>• Design System responsivo e acessível</li>
+                <li>• Typography plugin para conteúdo markdown</li>
+                <li>• Animações e transições performáticas</li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-4">
-              <h4 class="font-semibold text-gray-900 mb-2">Performance</h4>
-              <ul class="text-gray-600 space-y-1">
-                <li>• Server-Side Rendering</li>
-                <li>• Prerendering estático</li>
-                <li>• Lazy loading de componentes</li>
-                <li>• Otimizações de bundle</li>
+            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">🚀</span>
+                <h4 class="font-semibold text-gray-900">Performance & SEO</h4>
+              </div>
+              <ul class="text-gray-600 space-y-2 text-sm">
+                <li>• <strong>Server-Side Rendering (SSR)</strong> com Express.js</li>
+                <li>• <strong>Prerendering</strong> de rotas estáticas</li>
+                <li>• <strong>HTTP Transfer Cache</strong> para evitar duplicação</li>
+                <li>• Meta tags dinâmicas e Structured Data (JSON-LD)</li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-4">
-              <h4 class="font-semibold text-gray-900 mb-2">Desenvolvimento</h4>
-              <ul class="text-gray-600 space-y-1">
-                <li>• Express.js para SSR</li>
-                <li>• Angular CLI 20+</li>
-                <li>• Karma + Jasmine para testes</li>
-                <li>• Git para versionamento</li>
+            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-2xl">📝</span>
+                <h4 class="font-semibold text-gray-900">Content Management</h4>
+              </div>
+              <ul class="text-gray-600 space-y-2 text-sm">
+                <li>• <strong>Markdown</strong> com syntax highlighting (Prism.js)</li>
+                <li>• Editor WYSIWYG com preview em tempo real</li>
+                <li>• Sistema de categorias e tags</li>
+                <li>• Upload e gerenciamento de imagens</li>
               </ul>
             </div>
           </div>
 
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            Arquitetura do projeto
+            🏗️ Arquitetura do Projeto
           </h3>
 
-          <p class="text-gray-600 mb-4">
-            O blog segue uma arquitetura moderna baseada em:
-          </p>
+          <div class="bg-gray-50 rounded-lg p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-3">📁 Estrutura de Pastas</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">components/</code> - Componentes reutilizáveis</li>
+                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">pages/</code> - Páginas do aplicativo</li>
+                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">services/</code> - Serviços especializados</li>
+                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">models/</code> - Interfaces TypeScript</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-3">🔧 Serviços Principais</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• <strong>PostService</strong> - Gerenciamento de artigos</li>
+                  <li>• <strong>SeoService</strong> - Meta tags e Open Graph</li>
+                  <li>• <strong>MarkdownService</strong> - Parse e highlight</li>
+                  <li>• <strong>NewsletterService</strong> - EmailJS integration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-          <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
-            <li>
-              <strong>Componentes standalone</strong> para melhor tree-shaking
-            </li>
-            <li>
-              <strong>Signals</strong> para gerenciamento reativo de estado
-            </li>
-            <li>
-              <strong>Lazy loading</strong> para otimização de performance
-            </li>
-            <li>
-              <strong>SSR híbrido</strong> com prerendering para páginas
-              estáticas
-            </li>
-            <li>
-              <strong>Separation of concerns</strong> com serviços
-              especializados
-            </li>
-          </ul>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+            ✨ Features Implementadas
+          </h3>
 
-          <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-            <h4 class="font-semibold text-blue-900 mb-2">
-              🚀 Features implementadas
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">Sistema de Posts Completo</strong>
+                <p class="text-sm text-gray-600">Listagem, detalhes, filtros por categoria e busca</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">Editor Markdown Avançado</strong>
+                <p class="text-sm text-gray-600">Toolbar, preview, syntax highlighting e upload de imagens</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">SEO Otimizado</strong>
+                <p class="text-sm text-gray-600">Meta tags, Open Graph, Twitter Cards e Structured Data</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">Newsletter Integration</strong>
+                <p class="text-sm text-gray-600">EmailJS para gerenciamento de inscrições</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">SSR & Hydration</strong>
+                <p class="text-sm text-gray-600">Rendering híbrido com prerendering e SSR dinâmico</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-green-600 font-bold text-lg">✓</span>
+              <div>
+                <strong class="text-gray-900">Design Responsivo</strong>
+                <p class="text-sm text-gray-600">Mobile-first, acessível e com menu adaptativo</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6">
+            <h4 class="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              Destaques Técnicos
             </h4>
-            <ul class="text-blue-800 space-y-1">
-              <li>✅ Layout responsivo com header e footer</li>
-              <li>✅ Sistema de posts com filtros e busca</li>
-              <li>✅ Páginas de listagem e detalhes dos posts</li>
-              <li>✅ SEO otimizado com meta tags dinâmicas</li>
-              <li>✅ Navegação acessível e menu mobile</li>
-              <li>✅ Carregamento lazy de componentes</li>
+            <ul class="text-blue-900 space-y-2 text-sm">
+              <li>🎯 <strong>Zoneless Change Detection</strong> - Performance superior sem Zone.js</li>
+              <li>🔄 <strong>HTTP Transfer Cache</strong> - Elimina requisições duplicadas durante hydration</li>
+              <li>📊 <strong>Structured Data (JSON-LD)</strong> - Rich snippets para mecanismos de busca</li>
+              <li>⚡ <strong>Event Replay</strong> - Captura interações antes do JavaScript carregar</li>
+              <li>🎨 <strong>Tailwind v4</strong> - Sistema de design moderno com @use syntax</li>
+              <li>🧪 <strong>Type-Safe</strong> - TypeScript strict mode com interfaces completas</li>
             </ul>
           </div>
         </div>
