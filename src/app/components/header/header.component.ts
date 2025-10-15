@@ -127,7 +127,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  protected readonly blogTitle = signal('Meu Blog');
+  protected readonly blogTitle = signal('CodeFlow Angular');
   protected readonly mobileMenuOpen = signal(false);
 
   protected toggleMobileMenu(): void {
