@@ -96,6 +96,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
-  protected readonly title = signal('Meu Blog');
+  protected readonly title = signal('CodeFlow Angular');
   protected readonly currentYear = signal(new Date().getFullYear());
 }

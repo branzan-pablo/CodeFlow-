@@ -141,7 +141,7 @@ import { NewsletterService } from '../../services/newsletter.service';
               />
               <label for="consent" class="text-sm text-gray-600">
                 Eu concordo com o processamento do meu endereço de e-mail pela
-                PabloFBDev para o envio da newsletter.
+                CodeFlow Angular para o envio da newsletter.
                 <a
                   href="/privacy"
                   class="text-blue-600 hover:text-blue-800 underline"

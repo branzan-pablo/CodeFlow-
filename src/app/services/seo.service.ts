@@ -21,8 +21,8 @@ export class SeoService {
 
   setSeoData(seoData: SeoData): void {
     const title = seoData.title
-      ? `${seoData.title} | PabloFBDev Blog`
-      : 'PabloFBDev Blog';
+      ? `${seoData.title} | CodeFlow Angular`
+      : 'CodeFlow Angular';
 
     this._titleService.setTitle(title);
 
@@ -40,7 +40,7 @@ export class SeoService {
     );
     this._updateMetaTag('property', 'og:url', seoData.url);
     this._updateMetaTag('property', 'og:type', seoData.type || 'website');
-    this._updateMetaTag('property', 'og:site_name', 'PabloFBDev Blog');
+    this._updateMetaTag('property', 'og:site_name', 'CodeFlow Angular');
 
     // Twitter Card tags
     this._updateMetaTag('name', 'twitter:card', 'summary_large_image');

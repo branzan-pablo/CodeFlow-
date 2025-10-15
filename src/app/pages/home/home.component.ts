@@ -100,7 +100,7 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  protected readonly blogTitle = signal('PabloFBDev Blog');
+  protected readonly blogTitle = signal('CodeFlow Angular');
   protected readonly postService = inject(PostService);
   private readonly seoService = inject(SeoService);
   private readonly structuredDataService = inject(StructuredDataService);
@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
 
     // Configurar SEO para homepage
     this.seoService.setSeoData({
-      title: 'PabloFBDev Blog',
+      title: 'CodeFlow Angular',
       description:
         'Um blog moderno sobre desenvolvimento, tecnologia e inovação. Criado com Angular 20, SSR e as mais recentes tecnologias web.',
       keywords: [
@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
 
     // Adicionar dados estruturados do blog
     const blogStructuredData = generateBlogStructuredData(
-      'PabloFBDev Blog',
+      'CodeFlow Angular',
       'Blog sobre desenvolvimento web, Angular, TypeScript e tecnologias modernas',
       baseUrl
     );

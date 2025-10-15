@@ -62,7 +62,7 @@ export const generateArticleStructuredData = (
     },
     publisher: {
       '@type': 'Organization',
-      name: 'PabloFBDev Blog',
+      name: 'CodeFlow Angular',
       logo: {
         '@type': 'ImageObject',
         url: 'https://your-domain.com/logo.png',
@@ -91,7 +91,7 @@ export const generateBlogStructuredData = (
     url: url,
     publisher: {
       '@type': 'Organization',
-      name: 'PabloFBDev',
+      name: 'CodeFlow Angular',
       logo: {
         '@type': 'ImageObject',
         url: 'https://your-domain.com/logo.png',

@@ -120,7 +120,7 @@ export class NewsletterService {
     const templateParams = {
       to_email: subscription.email,
       to_name: subscription.email.split('@')[0], // Usa parte antes do @
-      blog_name: 'PabloFBDev Blog',
+      blog_name: 'CodeFlow Angular',
       blog_url: baseUrl,
       subscription_date: subscription.timestamp.toLocaleDateString('pt-BR'),
       unsubscribe_url: `${baseUrl}/newsletter/unsubscribe?email=${encodeURIComponent(
