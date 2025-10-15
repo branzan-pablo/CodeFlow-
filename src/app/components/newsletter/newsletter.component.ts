@@ -140,8 +140,8 @@ import { NewsletterService } from '../../services/newsletter.service';
                 class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <label for="consent" class="text-sm text-gray-600">
-                Eu concordo com o processamento do meu endereço de e-mail pela
-                CodeFlow Angular para o envio da newsletter.
+                Eu autorizo o CodeFlow Angular a processar meu endereço de
+                e-mail para fins de envio da newsletter.
                 <a
                   href="/privacy"
                   class="text-blue-600 hover:text-blue-800 underline"
@@ -151,42 +151,6 @@ import { NewsletterService } from '../../services/newsletter.service';
               </label>
             </div>
           </form>
-
-          <!-- Benefits -->
-          <div class="mt-8 text-sm text-gray-600">
-            <p class="mb-3">📧 <strong>O que você receberá:</strong></p>
-            <ul class="space-y-1 text-left max-w-xs mx-auto">
-              <li>• Novos artigos em primeira mão</li>
-              <li>• Dicas exclusivas de desenvolvimento</li>
-              <li>• Tendências e novidades do Angular</li>
-              <li>• Conteúdo curado de qualidade</li>
-            </ul>
-            <p class="mt-4 text-xs text-gray-500">
-              📬 Frequência: Semanal • 🚫 Sem spam • 🔒 Dados seguros
-            </p>
-          </div>
-        </div>
-
-        <!-- Stats (Optional) -->
-        <div
-          class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
-        >
-          <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">
-              {{ subscriberCount() }}+
-            </div>
-            <div class="text-sm text-gray-600">Desenvolvedores inscritos</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-green-600">
-              {{ articleCount() }}+
-            </div>
-            <div class="text-sm text-gray-600">Artigos publicados</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600">4.9★</div>
-            <div class="text-sm text-gray-600">Avaliação média</div>
-          </div>
         </div>
       </div>
     </div>
@@ -229,10 +193,6 @@ export class NewsletterComponent {
   submitMessage = signal('');
   isSuccess = signal(false);
 
-  // Stats conectados ao serviço
-  subscriberCount = signal(this.newsletterService.getSubscriberCount() + 150); // Base + real
-  articleCount = signal(25);
-
   async onSubmit(): Promise<void> {
     if (!this.consent()) {
       this.submitMessage.set('Por favor, aceite os termos de privacidade');
@@ -255,10 +215,6 @@ export class NewsletterComponent {
       if (result.success) {
         this.email.set('');
         this.consent.set(false);
-        // Atualiza contador
-        this.subscriberCount.set(
-          this.newsletterService.getSubscriberCount() + 150
-        );
       }
     } catch (error) {
       console.error('Erro ao inscrever:', error);
