@@ -18,7 +18,10 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
           Bem-vindo ao {{ blogTitle() }}
         </h1>
         <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Este é o espaço perfeito para quem quer aprender Angular de forma prática, descobrir dicas e melhores práticas, explorar técnicas avançadas e ficar sempre por dentro das novidades e tendências do mundo front-end.
+          Este é o espaço perfeito para quem quer aprender Angular de forma
+          prática, descobrir dicas e melhores práticas, explorar técnicas
+          avançadas e ficar sempre por dentro das novidades e tendências do
+          mundo front-end.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
