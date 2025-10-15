@@ -1,5 +1,4 @@
 import { Component, signal, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { SeoService } from '../../services/seo.service';
 import {
@@ -7,10 +6,11 @@ import {
   generateBlogStructuredData,
 } from '../../services/structured-data.service';
 import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
+import { PostGridComponent } from '../../components/post-grid/post-grid.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NewsletterComponent],
+  imports: [NewsletterComponent, PostGridComponent],
   template: `
     <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,58 +43,16 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
               ></path>
             </svg>
           </a>
-          <a
-            href="/about"
-            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
-          >
-            Sobre o Blog
-          </a>
         </div>
       </div>
     </section>
 
-    <section class="py-16 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Últimos Posts</h2>
-          <p class="text-gray-600">Confira os artigos mais recentes</p>
-        </div>
-
-        <!-- Grid de posts em destaque -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          @for (post of postService.featuredPosts(); track post.id) {
-          <article
-            class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-          >
-            <div
-              class="h-48 bg-gradient-to-br from-blue-100 to-purple-100"
-            ></div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                {{ post.title }}
-              </h3>
-              <p class="text-gray-600 mb-4 line-clamp-3">{{ post.excerpt }}</p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">{{
-                  formatDate(post.publishedAt)
-                }}</span>
-                <a
-                  [routerLink]="['/posts', post.slug]"
-                  class="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
-                >
-                  Ler mais
-                </a>
-              </div>
-            </div>
-          </article>
-          } @empty {
-          <div class="col-span-full text-center py-12">
-            <p class="text-gray-500">Nenhum post encontrado.</p>
-          </div>
-          }
-        </div>
-      </div>
-    </section>
+    <!-- Posts em Destaque -->
+    <app-post-grid
+      [posts]="postService.featuredPosts()"
+      title="Últimos Posts"
+      subtitle="Confira os artigos mais recentes"
+    />
 
     <!-- Newsletter Section -->
     <app-newsletter [source]="'homepage'" />
@@ -139,14 +97,5 @@ export class HomeComponent implements OnInit {
     );
 
     this.structuredDataService.addStructuredData(blogStructuredData, 'blog');
-  }
-
-  protected formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
   }
 }
