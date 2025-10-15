@@ -9,6 +9,11 @@ import {
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { MarkdownService } from '../../services/markdown.service';
+import { SeoService } from '../../services/seo.service';
+import {
+  StructuredDataService,
+  generateArticleStructuredData,
+} from '../../services/structured-data.service';
 import { Post } from '../../models/post.interface';
 import { Title, Meta } from '@angular/platform-browser';
 import { NewsletterCompactComponent } from '../../components/newsletter/newsletter-compact.component';
@@ -262,6 +267,8 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
   private readonly markdownService = inject(MarkdownService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
+  private readonly seoService = inject(SeoService);
+  private readonly structuredDataService = inject(StructuredDataService);
 
   private highlightApplied = false;
 
@@ -285,7 +292,7 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
 
       if (foundPost) {
         this.post.set(foundPost);
-        this.updateMetaTags(foundPost);
+        this.updateSeoData(foundPost);
         this.highlightApplied = false; // Reset flag for new post
       } else {
         this.post.set(null);
@@ -304,33 +311,35 @@ export class PostDetailComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  private updateMetaTags(post: Post): void {
-    this.titleService.setTitle(`${post.title} | Meu Blog`);
+  private updateSeoData(post: Post): void {
+    const baseUrl = 'https://your-domain.com'; // Configure com seu domínio
+    const postUrl = `${baseUrl}/posts/${post.slug}`;
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: post.metaDescription || post.excerpt,
+    // Atualiza SEO com o novo serviço
+    this.seoService.setSeoData({
+      title: post.title,
+      description: post.metaDescription || post.excerpt,
+      keywords: post.tags,
+      imageUrl: post.coverImage,
+      url: postUrl,
+      type: 'article',
     });
 
-    this.metaService.updateTag({
-      property: 'og:title',
-      content: post.title,
-    });
+    // Adiciona dados estruturados JSON-LD
+    const structuredData = generateArticleStructuredData(
+      post.title,
+      post.metaDescription || post.excerpt,
+      post.author.name,
+      post.publishedAt,
+      post.updatedAt || post.publishedAt,
+      post.coverImage,
+      postUrl
+    );
 
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: post.metaDescription || post.excerpt,
-    });
-
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'article',
-    });
-
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: post.tags.join(', '),
-    });
+    this.structuredDataService.addStructuredData(
+      structuredData,
+      `post-${post.id}`
+    );
   }
 
   protected formatDate(dateString: string): string {

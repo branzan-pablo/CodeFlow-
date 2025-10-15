@@ -1,6 +1,11 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
+import { SeoService } from '../../services/seo.service';
+import {
+  StructuredDataService,
+  generateBlogStructuredData,
+} from '../../services/structured-data.service';
 import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
 
 @Component({
@@ -94,9 +99,45 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
   `,
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  protected readonly blogTitle = signal('Meu Blog');
+export class HomeComponent implements OnInit {
+  protected readonly blogTitle = signal('PabloFBDev Blog');
   protected readonly postService = inject(PostService);
+  private readonly seoService = inject(SeoService);
+  private readonly structuredDataService = inject(StructuredDataService);
+
+  ngOnInit(): void {
+    this.setupSeoData();
+  }
+
+  private setupSeoData(): void {
+    const baseUrl = 'https://your-domain.com'; // Configure com seu domínio
+
+    // Configurar SEO para homepage
+    this.seoService.setSeoData({
+      title: 'PabloFBDev Blog',
+      description:
+        'Um blog moderno sobre desenvolvimento, tecnologia e inovação. Criado com Angular 20, SSR e as mais recentes tecnologias web.',
+      keywords: [
+        'Angular',
+        'TypeScript',
+        'Desenvolvimento Web',
+        'JavaScript',
+        'Blog',
+        'Tecnologia',
+      ],
+      url: baseUrl,
+      type: 'website',
+    });
+
+    // Adicionar dados estruturados do blog
+    const blogStructuredData = generateBlogStructuredData(
+      'PabloFBDev Blog',
+      'Blog sobre desenvolvimento web, Angular, TypeScript e tecnologias modernas',
+      baseUrl
+    );
+
+    this.structuredDataService.addStructuredData(blogStructuredData, 'blog');
+  }
 
   protected formatDate(dateString: string): string {
     const date = new Date(dateString);
