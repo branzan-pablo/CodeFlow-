@@ -23,11 +23,13 @@ import { RouterLink } from '@angular/router';
           </h2>
 
           <p class="text-gray-600 mb-6 leading-relaxed">
-            O <strong>CodeFlow Angular</strong> é um blog moderno desenvolvido com as mais 
-            recentes tecnologias web, demonstrando as melhores práticas de desenvolvimento 
-            frontend. Construído com <strong>Angular 20</strong> e <strong>Tailwind CSS v4</strong>, 
-            o projeto implementa arquitetura avançada com SSR, otimizações de performance e 
-            funcionalidades completas de um sistema de blog profissional.
+            O <strong>CodeFlow Angular</strong> é um blog moderno desenvolvido
+            com as mais recentes tecnologias web, demonstrando as melhores
+            práticas de desenvolvimento frontend. Construído com
+            <strong>Angular 20</strong> e <strong>Tailwind CSS v4</strong>, o
+            projeto implementa arquitetura avançada com SSR, otimizações de
+            performance e funcionalidades completas de um sistema de blog
+            profissional.
           </p>
 
           <h3 class="text-xl font-semibold text-gray-900 mb-4">
@@ -35,52 +37,75 @@ import { RouterLink } from '@angular/router';
           </h3>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+            <div
+              class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
+            >
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-2xl">⚡</span>
                 <h4 class="font-semibold text-gray-900">Core Framework</h4>
               </div>
               <ul class="text-gray-600 space-y-2 text-sm">
-                <li>• <strong>Angular 20</strong> com Zoneless Change Detection</li>
+                <li>
+                  • <strong>Angular 20</strong> com Zoneless Change Detection
+                </li>
                 <li>• <strong>TypeScript 5.8+</strong> para type safety</li>
-                <li>• <strong>Signals</strong> para gerenciamento de estado reativo</li>
-                <li>• <strong>Standalone Components</strong> (sem NgModules)</li>
+                <li>
+                  • <strong>Signals</strong> para gerenciamento de estado
+                  reativo
+                </li>
+                <li>
+                  • <strong>Standalone Components</strong> (sem NgModules)
+                </li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+            <div
+              class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
+            >
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-2xl">🎨</span>
                 <h4 class="font-semibold text-gray-900">Styling & UI</h4>
               </div>
               <ul class="text-gray-600 space-y-2 text-sm">
-                <li>• <strong>Tailwind CSS v4</strong> com nova sintaxe @use</li>
+                <li>
+                  • <strong>Tailwind CSS v4</strong> com nova sintaxe @use
+                </li>
                 <li>• Design System responsivo e acessível</li>
                 <li>• Typography plugin para conteúdo markdown</li>
                 <li>• Animações e transições performáticas</li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+            <div
+              class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
+            >
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-2xl">🚀</span>
                 <h4 class="font-semibold text-gray-900">Performance & SEO</h4>
               </div>
               <ul class="text-gray-600 space-y-2 text-sm">
-                <li>• <strong>Server-Side Rendering (SSR)</strong> com Express.js</li>
+                <li>
+                  • <strong>Server-Side Rendering (SSR)</strong> com Express.js
+                </li>
                 <li>• <strong>Prerendering</strong> de rotas estáticas</li>
-                <li>• <strong>HTTP Transfer Cache</strong> para evitar duplicação</li>
+                <li>
+                  • <strong>HTTP Transfer Cache</strong> para evitar duplicação
+                </li>
                 <li>• Meta tags dinâmicas e Structured Data (JSON-LD)</li>
               </ul>
             </div>
 
-            <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+            <div
+              class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
+            >
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-2xl">📝</span>
                 <h4 class="font-semibold text-gray-900">Content Management</h4>
               </div>
               <ul class="text-gray-600 space-y-2 text-sm">
-                <li>• <strong>Markdown</strong> com syntax highlighting (Prism.js)</li>
+                <li>
+                  • <strong>Markdown</strong> com syntax highlighting (Prism.js)
+                </li>
                 <li>• Editor WYSIWYG com preview em tempo real</li>
                 <li>• Sistema de categorias e tags</li>
                 <li>• Upload e gerenciamento de imagens</li>
@@ -95,21 +120,55 @@ import { RouterLink } from '@angular/router';
           <div class="bg-gray-50 rounded-lg p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 class="font-semibold text-gray-900 mb-3">📁 Estrutura de Pastas</h4>
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  📁 Estrutura de Pastas
+                </h4>
                 <ul class="text-sm text-gray-600 space-y-1">
-                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">components/</code> - Componentes reutilizáveis</li>
-                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">pages/</code> - Páginas do aplicativo</li>
-                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">services/</code> - Serviços especializados</li>
-                  <li>• <code class="text-xs bg-gray-200 px-1 rounded">models/</code> - Interfaces TypeScript</li>
+                  <li>
+                    •
+                    <code class="text-xs bg-gray-200 px-1 rounded"
+                      >components/</code
+                    >
+                    - Componentes reutilizáveis
+                  </li>
+                  <li>
+                    •
+                    <code class="text-xs bg-gray-200 px-1 rounded">pages/</code>
+                    - Páginas do aplicativo
+                  </li>
+                  <li>
+                    •
+                    <code class="text-xs bg-gray-200 px-1 rounded"
+                      >services/</code
+                    >
+                    - Serviços especializados
+                  </li>
+                  <li>
+                    •
+                    <code class="text-xs bg-gray-200 px-1 rounded"
+                      >models/</code
+                    >
+                    - Interfaces TypeScript
+                  </li>
                 </ul>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-3">🔧 Serviços Principais</h4>
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  🔧 Serviços Principais
+                </h4>
                 <ul class="text-sm text-gray-600 space-y-1">
-                  <li>• <strong>PostService</strong> - Gerenciamento de artigos</li>
-                  <li>• <strong>SeoService</strong> - Meta tags e Open Graph</li>
-                  <li>• <strong>MarkdownService</strong> - Parse e highlight</li>
-                  <li>• <strong>NewsletterService</strong> - EmailJS integration</li>
+                  <li>
+                    • <strong>PostService</strong> - Gerenciamento de artigos
+                  </li>
+                  <li>
+                    • <strong>SeoService</strong> - Meta tags e Open Graph
+                  </li>
+                  <li>
+                    • <strong>MarkdownService</strong> - Parse e highlight
+                  </li>
+                  <li>
+                    • <strong>NewsletterService</strong> - EmailJS integration
+                  </li>
                 </ul>
               </div>
             </div>
@@ -124,60 +183,96 @@ import { RouterLink } from '@angular/router';
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">Sistema de Posts Completo</strong>
-                <p class="text-sm text-gray-600">Listagem, detalhes, filtros por categoria e busca</p>
+                <p class="text-sm text-gray-600">
+                  Listagem, detalhes, filtros por categoria e busca
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">Editor Markdown Avançado</strong>
-                <p class="text-sm text-gray-600">Toolbar, preview, syntax highlighting e upload de imagens</p>
+                <p class="text-sm text-gray-600">
+                  Toolbar, preview, syntax highlighting e upload de imagens
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">SEO Otimizado</strong>
-                <p class="text-sm text-gray-600">Meta tags, Open Graph, Twitter Cards e Structured Data</p>
+                <p class="text-sm text-gray-600">
+                  Meta tags, Open Graph, Twitter Cards e Structured Data
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">Newsletter Integration</strong>
-                <p class="text-sm text-gray-600">EmailJS para gerenciamento de inscrições</p>
+                <p class="text-sm text-gray-600">
+                  EmailJS para gerenciamento de inscrições
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">SSR & Hydration</strong>
-                <p class="text-sm text-gray-600">Rendering híbrido com prerendering e SSR dinâmico</p>
+                <p class="text-sm text-gray-600">
+                  Rendering híbrido com prerendering e SSR dinâmico
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <span class="text-green-600 font-bold text-lg">✓</span>
               <div>
                 <strong class="text-gray-900">Design Responsivo</strong>
-                <p class="text-sm text-gray-600">Mobile-first, acessível e com menu adaptativo</p>
+                <p class="text-sm text-gray-600">
+                  Mobile-first, acessível e com menu adaptativo
+                </p>
               </div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6">
-            <h4 class="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+          <div
+            class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6"
+          >
+            <h4
+              class="font-semibold text-blue-900 mb-3 flex items-center gap-2"
+            >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                />
               </svg>
               Destaques Técnicos
             </h4>
             <ul class="text-blue-900 space-y-2 text-sm">
-              <li>🎯 <strong>Zoneless Change Detection</strong> - Performance superior sem Zone.js</li>
-              <li>🔄 <strong>HTTP Transfer Cache</strong> - Elimina requisições duplicadas durante hydration</li>
-              <li>📊 <strong>Structured Data (JSON-LD)</strong> - Rich snippets para mecanismos de busca</li>
-              <li>⚡ <strong>Event Replay</strong> - Captura interações antes do JavaScript carregar</li>
-              <li>🎨 <strong>Tailwind v4</strong> - Sistema de design moderno com @use syntax</li>
-              <li>🧪 <strong>Type-Safe</strong> - TypeScript strict mode com interfaces completas</li>
+              <li>
+                🎯 <strong>Zoneless Change Detection</strong> - Performance
+                superior sem Zone.js
+              </li>
+              <li>
+                🔄 <strong>HTTP Transfer Cache</strong> - Elimina requisições
+                duplicadas durante hydration
+              </li>
+              <li>
+                📊 <strong>Structured Data (JSON-LD)</strong> - Rich snippets
+                para mecanismos de busca
+              </li>
+              <li>
+                ⚡ <strong>Event Replay</strong> - Captura interações antes do
+                JavaScript carregar
+              </li>
+              <li>
+                🎨 <strong>Tailwind v4</strong> - Sistema de design moderno com
+                @use syntax
+              </li>
+              <li>
+                🧪 <strong>Type-Safe</strong> - TypeScript strict mode com
+                interfaces completas
+              </li>
             </ul>
           </div>
         </div>
@@ -211,44 +306,12 @@ import { RouterLink } from '@angular/router';
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
                 >
                   <div>
-                    <h3 class="text-3xl font-bold text-gray-900 mb-2">
+                    <h3 class="text-3xl font-bold text-gray-900 mt-4">
                       Pablo Ferreira
                     </h3>
                     <p class="text-lg text-blue-600 font-semibold mb-3">
-                      Desenvolvedor Front-End Sênior | Angular Expert
+                      Desenvolvedor Front-End Sênior
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                      <span
-                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                      >
-                        <svg
-                          class="w-3 h-3 mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                          />
-                        </svg>
-                        9+ anos de experiência
-                      </span>
-                      <span
-                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800"
-                      >
-                        <svg
-                          class="w-3 h-3 mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                        12 anos em tecnologia
-                      </span>
-                    </div>
                   </div>
 
                   <!-- Social Links -->
@@ -310,7 +373,7 @@ import { RouterLink } from '@angular/router';
                 </div>
 
                 <!-- Bio -->
-                <div class="space-y-4 text-gray-600 leading-relaxed mb-6">
+                <div class="space-y-4 text-gray-600 leading-relaxed mb-2">
                   <p class="text-base">
                     Desenvolvedor Front-End Sênior com
                     <strong class="text-gray-900"
@@ -337,7 +400,7 @@ import { RouterLink } from '@angular/router';
             <!-- Especialidades Grid -->
             <div class="mt-8">
               <h4
-                class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"
+                class="skills text-xl font-bold text-gray-900 mb-4 flex items-center gap-2"
               >
                 <svg
                   class="w-6 h-6 text-blue-600"
