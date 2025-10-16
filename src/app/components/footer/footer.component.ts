@@ -3,15 +3,17 @@ import { Component, signal } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-    <footer class="bg-white border-t border-gray-200 mt-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer class="bg-white border-t border-gray-200 mt-8 sm:mt-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           <!-- About Section -->
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">
+            <h3
+              class="text-responsive-base font-semibold text-gray-900 mb-3 sm:mb-4"
+            >
               {{ title() }}
             </h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <p class="text-gray-600 text-responsive-xs leading-relaxed">
               “Mil cairão ao teu lado, e dez mil à tua direita, mas tu não serás
               atingido.”
             </p>
@@ -19,16 +21,18 @@ import { Component, signal } from '@angular/core';
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">
+            <h3
+              class="text-responsive-base font-semibold text-gray-900 mb-3 sm:mb-4"
+            >
               Links Rápidos
             </h3>
             <ul class="space-y-2">
               <li>
                 <a
                   href="/"
-                  class="text-gray-600 hover:text-gray-900 text-sm transition-colors"
+                  class="text-gray-600 hover:text-gray-900 text-responsive-xs transition-colors"
                 >
-                  Home
+                  > Home
                 </a>
               </li>
               <li>
@@ -52,7 +56,11 @@ import { Component, signal } from '@angular/core';
 
           <!-- Social Links -->
           <div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Contato</h3>
+            <h3
+              class="text-responsive-base font-semibold text-gray-900 mb-3 sm:mb-4"
+            >
+              Contato
+            </h3>
             <div class="flex space-x-4">
               <a
                 href="https://github.com/PabloFerreiraB"
@@ -85,8 +93,8 @@ import { Component, signal } from '@angular/core';
         </div>
 
         <!-- Copyright -->
-        <div class="mt-8 pt-8 border-t border-gray-200">
-          <p class="text-center text-gray-500 text-sm">
+        <div class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200">
+          <p class="text-center text-gray-500 text-responsive-xs">
             © {{ currentYear() }} {{ title() }}. Todos os direitos reservados.
           </p>
         </div>

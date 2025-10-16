@@ -5,11 +5,13 @@ import { RouterLink } from '@angular/router';
   selector: 'app-about',
   imports: [RouterLink],
   template: `
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Sobre o Blog</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      <div class="text-center mb-8 sm:mb-12">
+        <h1 class="text-responsive-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          Sobre o Blog
+        </h1>
+        <p class="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
           Compartilhando conhecimento prático sobre Angular e desenvolvimento
           front-end moderno.
         </p>
@@ -17,12 +19,14 @@ import { RouterLink } from '@angular/router';
 
       <!-- Main Content -->
       <div class="prose prose-lg max-w-none">
-        <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+        <div class="bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-6 sm:mb-8">
+          <h2 class="text-responsive-2xl font-bold text-gray-900 mb-4 sm:mb-6">
             Sobre este projeto
           </h2>
 
-          <p class="text-gray-600 mb-6 leading-relaxed">
+          <p
+            class="text-responsive-sm text-gray-600 mb-4 sm:mb-6 leading-relaxed"
+          >
             O <strong>CodeFlow Angular</strong> é um blog moderno desenvolvido
             com as mais recentes tecnologias web, demonstrando as melhores
             práticas de desenvolvimento frontend. Construído com
@@ -32,11 +36,15 @@ import { RouterLink } from '@angular/router';
             profissional.
           </p>
 
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          <h3
+            class="text-responsive-lg font-semibold text-gray-900 mb-3 sm:mb-4"
+          >
             🎯 Stack Tecnológico
           </h3>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8"
+          >
             <div
               class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
             >
@@ -113,8 +121,10 @@ import { RouterLink } from '@angular/router';
             </div>
           </div>
 
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            🏗️ Arquitetura do Projeto
+          <h3
+            class="text-responsive-lg font-semibold text-gray-900 mb-3 sm:mb-4"
+          >
+            📁 Arquitetura do Projeto
           </h3>
 
           <div class="bg-gray-50 rounded-lg p-6 mb-6">

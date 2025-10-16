@@ -12,21 +12,27 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
   selector: 'app-home',
   imports: [NewsletterComponent, PostGridComponent],
   template: `
-    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+    <section
+      class="bg-gradient-to-br from-blue-50 to-indigo-100 py-12 sm:py-16 md:py-20"
+    >
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+        <h1
+          class="text-responsive-4xl md:text-responsive-6xl font-bold text-gray-900 mb-4 sm:mb-6"
+        >
           Bem-vindo ao {{ blogTitle() }}
         </h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        <p
+          class="text-responsive-base sm:text-responsive-lg text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed"
+        >
           Este é o espaço perfeito para quem quer aprender Angular de forma
           prática, descobrir dicas e melhores práticas, explorar técnicas
           avançadas e ficar sempre por dentro das novidades e tendências do
           mundo front-end.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a
             href="/posts"
-            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+            class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
           >
             Ver Posts
             <svg

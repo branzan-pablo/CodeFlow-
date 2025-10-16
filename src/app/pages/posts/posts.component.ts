@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-posts',
   imports: [RouterLink, FormsModule],
   template: `
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Todos os Posts</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      <div class="text-center mb-8 sm:mb-12">
+        <h1 class="text-responsive-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          Todos os Posts
+        </h1>
+        <p class="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
           Explore todos os artigos sobre desenvolvimento, tecnologia e inovação.
         </p>
       </div>
@@ -100,8 +102,8 @@ import { FormsModule } from '@angular/forms';
       </div>
 
       <!-- Results Count -->
-      <div class="mb-6">
-        <p class="text-gray-600">
+      <div class="mb-4 sm:mb-6">
+        <p class="text-responsive-sm text-gray-600">
           {{ filteredPosts().length }}
           {{
             filteredPosts().length === 1
@@ -112,29 +114,31 @@ import { FormsModule } from '@angular/forms';
       </div>
 
       <!-- Posts Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+      >
         @for (post of filteredPosts(); track post.id) {
         <article
           class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
         >
           <!-- Cover Image Placeholder -->
           <div
-            class="h-48 bg-gradient-to-br from-blue-100 to-purple-100 relative"
+            class="h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-purple-100 relative"
           >
             @if (post.featured) {
             <div
-              class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium"
+              class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium"
             >
               Destaque
             </div>
             }
           </div>
 
-          <div class="p-6">
+          <div class="p-4 sm:p-6">
             <!-- Category -->
-            <div class="mb-3">
+            <div class="mb-2 sm:mb-3">
               <span
-                class="inline-block px-3 py-1 text-xs font-medium rounded-full"
+                class="inline-block px-2 sm:px-3 py-1 text-xs font-medium rounded-full"
                 [style.background-color]="post.category.color + '20'"
                 [style.color]="post.category.color"
               >
@@ -143,7 +147,9 @@ import { FormsModule } from '@angular/forms';
             </div>
 
             <!-- Title -->
-            <h2 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+            <h2
+              class="text-responsive-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2"
+            >
               <a
                 [routerLink]="['/posts', post.slug]"
                 class="hover:text-blue-600 transition-colors"
@@ -153,32 +159,40 @@ import { FormsModule } from '@angular/forms';
             </h2>
 
             <!-- Excerpt -->
-            <p class="text-gray-600 mb-4 line-clamp-3">{{ post.excerpt }}</p>
+            <p
+              class="text-responsive-sm text-gray-600 mb-3 sm:mb-4 line-clamp-3"
+            >
+              {{ post.excerpt }}
+            </p>
 
             <!-- Meta information -->
             <div
-              class="flex items-center justify-between text-sm text-gray-500"
+              class="flex items-center justify-between text-xs sm:text-sm text-gray-500"
             >
-              <div class="flex items-center space-x-4">
+              <div class="flex items-center space-x-2 sm:space-x-4">
                 <span>{{ formatDate(post.publishedAt) }}</span>
                 <span>{{ post.readTime }} min</span>
               </div>
               <a
                 [routerLink]="['/posts', post.slug]"
-                class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                class="text-blue-600 hover:text-blue-800 font-medium transition-colors text-xs sm:text-sm"
               >
                 Ler mais
               </a>
             </div>
 
             <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-1">
+            <div class="mt-3 sm:mt-4 flex flex-wrap gap-1 sm:gap-2">
               @for (tag of post.tags.slice(0, 3); track tag) {
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
+              <span
+                class="px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-600 text-xs rounded"
+              >
                 {{ tag }}
               </span>
               } @if (post.tags.length > 3) {
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
+              <span
+                class="px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-600 text-xs rounded"
+              >
                 +{{ post.tags.length - 3 }}
               </span>
               }
@@ -186,7 +200,7 @@ import { FormsModule } from '@angular/forms';
           </div>
         </article>
         } @empty {
-        <div class="col-span-full text-center py-12">
+        <div class="col-span-full text-center py-8 sm:py-12">
           <svg
             class="mx-auto h-12 w-12 text-gray-400"
             fill="none"

@@ -7,21 +7,23 @@ import { NewsletterService } from '../../services/newsletter.service';
   selector: 'app-newsletter',
   imports: [FormsModule, CommonModule],
   template: `
-    <div class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+    <div
+      class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-16"
+    >
       <div class="max-w-4xl mx-auto px-4 text-center">
         <!-- Header -->
-        <div class="mb-8">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div class="mb-6 sm:mb-8">
+          <h2 class="text-responsive-3xl font-bold text-gray-900 mb-3 sm:mb-4">
             Assine nossa Newsletter
           </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p class="text-responsive-base text-gray-600 max-w-2xl mx-auto">
             Mantenha-se atualizado com as tendências mais recentes e faça parte
             de uma comunidade próspera de desenvolvedores.
           </p>
         </div>
 
         <!-- Newsletter Image/Icon -->
-        <div class="mb-8">
+        <div class="mb-6 sm:mb-8">
           <div
             class="inline-flex items-center justify-center w-24 h-24 bg-blue-100 rounded-full mb-6"
           >
@@ -139,7 +141,7 @@ import { NewsletterService } from '../../services/newsletter.service';
                 required
                 class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
-              <label for="consent" class="text-sm text-gray-600">
+              <label for="consent" class="text-responsive-xs text-gray-600">
                 Eu autorizo o CodeFlow Angular a processar meu endereço de
                 e-mail para fins de envio da newsletter.
                 <a

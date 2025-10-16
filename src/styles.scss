@@ -2,6 +2,118 @@
 
 @use "tailwindcss";
 
+/* ========================================
+   TIPOGRAFIA RESPONSIVA
+   ======================================== */
+
+/* Sistema de tipografia fluida baseado em viewport */
+html {
+  /* Mobile-first: tamanho base menor */
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  /* sm: tablets pequenos */
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* md: tablets */
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg: desktop */
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Classes utilitárias para tipografia responsiva */
+.text-responsive-xs {
+  font-size: 0.75rem; /* 12px mobile, escala com html font-size */
+}
+
+.text-responsive-sm {
+  font-size: 0.875rem; /* 14px mobile, escala com html font-size */
+}
+
+.text-responsive-base {
+  font-size: 1rem; /* 16px mobile, escala com html font-size */
+}
+
+.text-responsive-lg {
+  font-size: 1.125rem; /* 18px mobile, escala com html font-size */
+}
+
+.text-responsive-xl {
+  font-size: 1.25rem; /* 20px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-xl {
+    font-size: 1.5rem; /* 24px desktop */
+  }
+}
+
+.text-responsive-2xl {
+  font-size: 1.5rem; /* 24px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-2xl {
+    font-size: 2rem; /* 32px desktop */
+  }
+}
+
+.text-responsive-3xl {
+  font-size: 1.75rem; /* 28px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-3xl {
+    font-size: 2.5rem; /* 40px desktop */
+  }
+}
+
+.text-responsive-4xl {
+  font-size: 2rem; /* 32px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-4xl {
+    font-size: 3rem; /* 48px desktop */
+  }
+}
+
+.text-responsive-5xl {
+  font-size: 2.25rem; /* 36px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-5xl {
+    font-size: 3.5rem; /* 56px desktop */
+  }
+}
+
+.text-responsive-6xl {
+  font-size: 2.5rem; /* 40px mobile */
+}
+
+@media (min-width: 768px) {
+  .text-responsive-6xl {
+    font-size: 4rem; /* 64px desktop */
+  }
+}
+
+/* ========================================
+   TAILWIND TYPOGRAPHY - PROSE
+   ======================================== */
+
 /* Override para tabelas do Tailwind Typography no prose */
 .prose table {
   width: 100%;

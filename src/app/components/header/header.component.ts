@@ -7,45 +7,45 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   template: `
     <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-6">
+        <div class="flex justify-between items-center py-4 sm:py-6">
           <!-- Logo/Brand -->
           <div class="flex items-center">
             <a
               routerLink="/"
-              class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+              class="text-responsive-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
             >
               {{ blogTitle() }}
             </a>
           </div>
 
           <!-- Navigation -->
-          <nav class="hidden md:flex space-x-8">
+          <nav class="hidden md:flex space-x-6 lg:space-x-8">
             <a
               routerLink="/"
               routerLinkActive="text-blue-600"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
               Home
             </a>
             <a
               routerLink="/posts"
               routerLinkActive="text-blue-600"
-              class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
               Posts
             </a>
             <a
               routerLink="/editor"
               routerLinkActive="text-blue-600"
-              class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
               Editor
             </a>
             <a
               routerLink="/about"
               routerLinkActive="text-blue-600"
-              class="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             >
               Sobre
             </a>
@@ -85,12 +85,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         <!-- Mobile Navigation -->
         @if (mobileMenuOpen()) {
-        <nav class="md:hidden pb-6 space-y-4">
+        <nav class="md:hidden pb-4 sm:pb-6 space-y-3 sm:space-y-4">
           <a
             routerLink="/"
             routerLinkActive="text-blue-600"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="block text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            class="block text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             (click)="closeMobileMenu()"
           >
             Home
@@ -98,7 +98,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/posts"
             routerLinkActive="text-blue-600"
-            class="block text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            class="block text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             (click)="closeMobileMenu()"
           >
             Posts
@@ -106,7 +106,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/editor"
             routerLinkActive="text-blue-600"
-            class="block text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            class="block text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             (click)="closeMobileMenu()"
           >
             Editor
@@ -114,7 +114,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <a
             routerLink="/about"
             routerLinkActive="text-blue-600"
-            class="block text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            class="block text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
             (click)="closeMobileMenu()"
           >
             Sobre
