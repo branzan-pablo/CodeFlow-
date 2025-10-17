@@ -22,6 +22,14 @@ export const serverRoutes: ServerRoute[] = [
     path: 'newsletter',
     renderMode: RenderMode.Prerender,
   },
+  {
+    path: 'privacy',
+    renderMode: RenderMode.Prerender,
+  },
+  {
+    path: 'terms',
+    renderMode: RenderMode.Prerender,
+  },
   // Rotas dinâmicas que devem usar SSR
   {
     path: 'posts/:slug',
