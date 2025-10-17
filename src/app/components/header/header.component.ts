@@ -36,13 +36,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
               Posts
             </a>
             <a
-              routerLink="/editor"
-              routerLinkActive="text-blue-600"
-              class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            >
-              Editor
-            </a>
-            <a
               routerLink="/about"
               routerLinkActive="text-blue-600"
               class="text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
@@ -102,14 +95,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             (click)="closeMobileMenu()"
           >
             Posts
-          </a>
-          <a
-            routerLink="/editor"
-            routerLinkActive="text-blue-600"
-            class="block text-responsive-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            (click)="closeMobileMenu()"
-          >
-            Editor
           </a>
           <a
             routerLink="/about"
