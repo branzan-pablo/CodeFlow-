@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NewsletterService } from '../../services/newsletter.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-newsletter-page',
@@ -329,6 +330,7 @@ import { NewsletterService } from '../../services/newsletter.service';
 export class NewsletterPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly newsletterService = inject(NewsletterService);
+  private readonly seoService = inject(SeoService);
 
   action = signal<string>('');
   unsubscribeEmail = signal('');
@@ -339,6 +341,25 @@ export class NewsletterPageComponent implements OnInit {
   subscriberCount = signal(this.newsletterService.getSubscriberCount() + 150);
 
   ngOnInit(): void {
+    // Configurar SEO
+    this.seoService.setSeoData({
+      title: 'Newsletter',
+      description:
+        'Inscreva-se na newsletter do CodeFlow Angular e receba as últimas atualizações sobre Angular, TypeScript e desenvolvimento web diretamente no seu e-mail.',
+      keywords: [
+        'newsletter',
+        'inscrição',
+        'e-mail',
+        'atualizações',
+        'Angular',
+        'TypeScript',
+        'blog',
+        'conteúdo',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/newsletter',
+    });
+
     // Lê parâmetros da URL
     this.route.queryParams.subscribe((params) => {
       if (params['action'] === 'unsubscribe') {

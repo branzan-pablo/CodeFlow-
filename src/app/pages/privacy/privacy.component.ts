@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-privacy',
@@ -248,7 +249,27 @@ import { RouterLink } from '@angular/router';
   `,
   styles: [],
 })
-export class PrivacyComponent {
+export class PrivacyComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seoService.setSeoData({
+      title: 'Política de Privacidade',
+      description:
+        'Política de privacidade do CodeFlow Angular em conformidade com a LGPD. Saiba como tratamos seus dados pessoais, uso de localStorage e informações sobre newsletter via EmailJS.',
+      keywords: [
+        'privacidade',
+        'LGPD',
+        'proteção de dados',
+        'política de privacidade',
+        'dados pessoais',
+        'CodeFlow Angular',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/privacy',
+    });
+  }
+
   protected lastUpdate() {
     return new Date().toLocaleDateString('pt-BR', {
       year: 'numeric',

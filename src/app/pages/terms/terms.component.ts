@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-terms',
@@ -169,7 +170,27 @@ import { RouterLink } from '@angular/router';
   `,
   styles: [],
 })
-export class TermsComponent {
+export class TermsComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seoService.setSeoData({
+      title: 'Termos de Uso',
+      description:
+        'Termos de uso do CodeFlow Angular. Conheça as regras de utilização, licença de conteúdo, uso de código-fonte e direitos autorais do blog.',
+      keywords: [
+        'termos de uso',
+        'licença',
+        'direitos autorais',
+        'uso de conteúdo',
+        'CodeFlow Angular',
+        'regras',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/terms',
+    });
+  }
+
   protected lastUpdate() {
     return new Date().toLocaleDateString('pt-BR', {
       year: 'numeric',

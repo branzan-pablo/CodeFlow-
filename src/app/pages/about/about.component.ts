@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about',
@@ -750,6 +751,27 @@ import { RouterLink } from '@angular/router';
   `,
   styleUrl: './about.component.scss',
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
   protected readonly authorInitials = signal('PF');
+
+  ngOnInit(): void {
+    this.seoService.setSeoData({
+      title: 'Sobre o Blog',
+      description:
+        'Conheça o CodeFlow Angular: um blog moderno sobre Angular 20, TypeScript, SSR e desenvolvimento front-end. Aprenda sobre a stack tecnológica e arquitetura do projeto.',
+      keywords: [
+        'sobre',
+        'CodeFlow Angular',
+        'blog Angular',
+        'desenvolvimento front-end',
+        'Angular 20',
+        'TypeScript',
+        'SSR',
+        'tecnologia',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/about',
+    });
+  }
 }

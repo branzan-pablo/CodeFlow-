@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownEditorComponent } from '../../components/markdown-editor/markdown-editor.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-editor-demo',
@@ -238,7 +239,8 @@ import { MarkdownEditorComponent } from '../../components/markdown-editor/markdo
     `,
   ],
 })
-export class EditorDemoComponent {
+export class EditorDemoComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
   protected readonly content = signal('');
 
   // Conteúdo inicial de exemplo
@@ -294,6 +296,26 @@ Pressione o botão "Preview" para ver como seu conteúdo ficará renderizado!
   constructor() {
     this.content.set(this.initialContent);
     this.updateStats();
+  }
+
+  ngOnInit(): void {
+    this.seoService.setSeoData({
+      title: 'Editor de Markdown',
+      description:
+        'Experimente nosso editor de Markdown avançado com syntax highlighting, upload de imagens e preview em tempo real. Ideal para criar conteúdo técnico.',
+      keywords: [
+        'editor markdown',
+        'markdown',
+        'editor',
+        'syntax highlighting',
+        'upload imagens',
+        'preview',
+        'Prism.js',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/editor',
+      noIndex: true, // Página de demo não precisa ser indexada
+    });
   }
 
   protected onContentChange(newContent: string): void {

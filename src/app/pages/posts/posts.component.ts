@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { PostFilters, Post } from '../../models/post.interface';
 import { FormsModule } from '@angular/forms';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-posts',
@@ -47,7 +48,6 @@ import { FormsModule } from '@angular/forms';
                 id="search"
                 type="text"
                 [(ngModel)]="searchTerm"
-                (input)="onSearchChange()"
                 placeholder="Buscar posts..."
                 class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
               />
@@ -229,6 +229,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class PostsComponent implements OnInit {
   protected readonly postService = inject(PostService);
+  private readonly seoService = inject(SeoService);
 
   protected readonly searchTerm = signal('');
   protected readonly selectedCategory = signal<string | null>(null);
@@ -262,10 +263,25 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     // Limpar filtros ao inicializar
     this.postService.clearFilters();
-  }
 
-  protected onSearchChange(): void {
-    // O signal já reagirá automaticamente à mudança
+    // Configurar SEO
+    this.seoService.setSeoData({
+      title: 'Todos os Posts',
+      description:
+        'Explore todos os artigos sobre Angular, TypeScript, desenvolvimento web, SSR, performance e boas práticas. Filtre por categoria ou tag para encontrar o conteúdo ideal.',
+      keywords: [
+        'posts',
+        'artigos',
+        'Angular',
+        'TypeScript',
+        'desenvolvimento web',
+        'tutoriais',
+        'blog',
+        'programação',
+      ],
+      type: 'website',
+      url: 'https://your-domain.com/posts',
+    });
   }
 
   protected toggleCategoryFilter(categorySlug: string): void {
