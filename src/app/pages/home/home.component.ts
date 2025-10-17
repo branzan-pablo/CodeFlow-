@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
 
     // Configurar SEO para homepage
     this.seoService.setSeoData({
-      title: 'CodeFlow Angular',
+      title: '',
       description:
         'Este é o espaço perfeito para quem quer aprender Angular de forma prática, descobrir dicas e melhores práticas, explorar técnicas avançadas e ficar sempre por dentro das novidades e tendências do mundo front-end.',
       keywords: [
