@@ -179,17 +179,17 @@ export class PostService {
     return [
       {
         id: 1,
-        title: 'Começando com Angular 20: Zoneless Change Detection',
+        title: 'Começando com Angular: Zoneless Change Detection',
         slug: 'comecando-com-angular-20',
         excerpt:
-          'Descubra as novidades do Angular 20 e como aproveitar ao máximo os novos recursos como signals e zoneless change detection para criar aplicações mais performáticas.',
-        content: `# Começando com Angular 20: Zoneless Change Detection
+          'Descubra as novidades do Angular e como aproveitar ao máximo os novos recursos como signals e zoneless change detection para criar aplicações mais performáticas.',
+        content: `# Começando com Angular: Zoneless Change Detection
 
-O Angular 20 trouxe uma das mudanças mais significativas da história do framework: a possibilidade de usar **zoneless change detection**. Esta nova abordagem promete melhorar drasticamente a performance das aplicações Angular.
+O Angular trouxe uma das mudanças mais significativas da história do framework: a possibilidade de usar **zoneless change detection**. Esta nova abordagem promete melhorar drasticamente a performance das aplicações Angular.
 
 ## O que mudou?
 
-Tradicionalmente, o Angular usava Zone.js para detectar mudanças automaticamente. Com o Angular 20, podemos usar signals para gerenciar o estado e disparar mudanças de forma mais eficiente.
+Tradicionalmente, o Angular usava Zone.js para detectar mudanças automaticamente. Com o Angular, podemos usar signals para gerenciar o estado e disparar mudanças de forma mais eficiente.
 
 ### Principais vantagens:
 
@@ -321,9 +321,9 @@ O zoneless change detection representa o **futuro do Angular** - mais rápido, m
         category: categories[0],
         readTime: 8,
         featured: true,
-        coverImage: '/images/angular-20-cover.svg',
+        coverImage: '/images/angular-cover.svg',
         metaDescription:
-          'Aprenda sobre zoneless change detection no Angular 20 e como usar signals para melhorar a performance da sua aplicação.',
+          'Aprenda sobre zoneless change detection no Angular e como usar signals para melhorar a performance da sua aplicação.',
       },
       {
         id: 2,

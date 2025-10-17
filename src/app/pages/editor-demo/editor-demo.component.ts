@@ -256,7 +256,7 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-example',
-  template: \`<h1>Hello Angular 20!</h1>\`
+  template: \`<h1>Hello Angular!</h1>\`
 })
 export class ExampleComponent {
   readonly message = signal('Olá mundo!');

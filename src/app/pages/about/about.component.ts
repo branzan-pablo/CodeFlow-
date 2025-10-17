@@ -31,10 +31,9 @@ import { SeoService } from '../../services/seo.service';
             O <strong>CodeFlow Angular</strong> é um blog moderno desenvolvido
             com as mais recentes tecnologias web, demonstrando as melhores
             práticas de desenvolvimento frontend. Construído com
-            <strong>Angular 20</strong> e <strong>Tailwind CSS v4</strong>, o
-            projeto implementa arquitetura avançada com SSR, otimizações de
-            performance e funcionalidades completas de um sistema de blog
-            profissional.
+            <strong>Angular</strong>, o projeto implementa arquitetura avançada
+            com SSR, otimizações de performance e funcionalidades completas de
+            um sistema de blog profissional.
           </p>
 
           <h3
@@ -759,13 +758,13 @@ export class AboutComponent implements OnInit {
     this.seoService.setSeoData({
       title: 'Sobre o Blog',
       description:
-        'Conheça o CodeFlow Angular: um blog moderno sobre Angular 20, TypeScript, SSR e desenvolvimento front-end. Aprenda sobre a stack tecnológica e arquitetura do projeto.',
+        'Conheça o CodeFlow Angular: um blog moderno sobre Angular, TypeScript, SSR e desenvolvimento front-end. Aprenda sobre a stack tecnológica e arquitetura do projeto.',
       keywords: [
         'sobre',
         'CodeFlow Angular',
         'blog Angular',
         'desenvolvimento front-end',
-        'Angular 20',
+        'Angular',
         'TypeScript',
         'SSR',
         'tecnologia',

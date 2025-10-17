@@ -1,6 +1,6 @@
 # CodeFlow Angular 🚀
 
-> Blog moderno desenvolvido com Angular 20, Tailwind CSS v4 e Server-Side Rendering para compartilhar conhecimento sobre desenvolvimento frontend.
+> Blog moderno desenvolvido com Angular e Server-Side Rendering para compartilhar conhecimento sobre desenvolvimento frontend.
 
 [![Angular](https://img.shields.io/badge/Angular-20.1-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
