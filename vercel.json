@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "public": false,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run start",
+  "installCommand": "npm install",
+  "framework": null,
+  "outputDirectory": "dist/blog/browser"
+}
