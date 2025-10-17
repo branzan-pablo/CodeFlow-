@@ -11,7 +11,7 @@ import { MarkdownEditorComponent } from '../../components/markdown-editor/markdo
         <!-- Header -->
         <div class="mb-8">
           <h1 class="text-3xl font-bold text-gray-900 mb-2">
-            Editor de Markdown com NgOptimizedImage
+            Editor de Markdown
           </h1>
           <p class="text-gray-600">
             Editor completo com syntax highlighting, upload de imagens e
