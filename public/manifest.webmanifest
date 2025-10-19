@@ -1,0 +1,33 @@
+{
+  "name": "CodeFlow Angular - Blog de Desenvolvimento",
+  "short_name": "CodeFlow",
+  "description": "Blog moderno sobre Angular, TypeScript, SSR e desenvolvimento front-end",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "development", "technology"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}
