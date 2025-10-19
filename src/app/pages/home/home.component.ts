@@ -19,18 +19,21 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
       <!-- Background Pattern -->
       <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
-      <!-- Animated Blobs -->
+      <!-- Animated Blobs - Hidden on mobile for performance -->
       <div
-        class="absolute top-0 left-1/4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+        class="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full animate-blob"
+        aria-hidden="true"
       ></div>
       <div
-        class="absolute top-0 right-1/4 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+        class="hidden md:block absolute top-0 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full animate-blob animation-delay-2000"
+        aria-hidden="true"
       ></div>
       <div
-        class="absolute bottom-0 left-1/3 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+        class="hidden md:block absolute bottom-0 left-1/3 w-96 h-96 bg-pink-400/30 rounded-full animate-blob animation-delay-4000"
+        aria-hidden="true"
       ></div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div class="text-center">
           <h1
             class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight animate-fade-in-up"
