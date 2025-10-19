@@ -3,7 +3,7 @@
 @use "tailwindcss";
 
 /* ========================================
-   PWA - MODO STANDALONE/FULLSCREEN
+   MOBILE VIEWPORT & FULLSCREEN
    ======================================== */
 
 /* Garante que a página ocupe toda a altura da viewport no mobile */
@@ -14,18 +14,29 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  
+  /* Respeita safe areas (notch, câmera frontal, etc) */
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
 
   /* Remove bounce effect no iOS */
   overscroll-behavior-y: contain;
 
   /* Melhora scroll no iOS */
   -webkit-overflow-scrolling: touch;
+  
+  /* Força altura mínima no mobile (resolve problema de barra de navegação) */
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Suporte para navegadores WebKit (Safari, Chrome mobile) */
+html {
+  height: -webkit-fill-available;
 }
 
 /* Para apps standalone (quando instalado como PWA) */
 @media (display-mode: standalone) {
   body {
-    /* Remove padding top quando em modo standalone */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
   }
