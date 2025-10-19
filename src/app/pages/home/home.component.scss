@@ -30,9 +30,12 @@
 
 // Animação de blobs flutuantes - simplificada para performance
 @keyframes blob {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(30px, -30px, 0) scale(1.05);
   }
@@ -41,7 +44,7 @@
 .animate-blob {
   animation: blob 10s ease-in-out infinite;
   filter: blur(40px);
-  
+
   // Remove animações em dispositivos lentos
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -87,7 +90,7 @@
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
-  
+
   // Reduz animações em dispositivos lentos
   @media (prefers-reduced-motion: reduce) {
     animation: fadeIn 0.3s ease-out forwards;

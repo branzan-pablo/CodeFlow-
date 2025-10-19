@@ -14,29 +14,18 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
   imports: [RouterLink, NewsletterComponent, PostGridComponent],
   template: `
     <section
-      class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-10 sm:py-12 lg:py-16"
+      class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-20 sm:py-24 lg:py-32"
     >
       <!-- Background Pattern -->
-      <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-
-      <!-- Animated Blobs - Hidden on mobile for performance -->
       <div
-        class="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full animate-blob"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="hidden md:block absolute top-0 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full animate-blob animation-delay-2000"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="hidden md:block absolute bottom-0 left-1/3 w-96 h-96 bg-pink-400/30 rounded-full animate-blob animation-delay-4000"
+        class="absolute inset-0 bg-grid-pattern opacity-10"
         aria-hidden="true"
       ></div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
           <h1
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight animate-fade-in-up"
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
           >
             Aprenda Angular
             <span
@@ -47,14 +36,14 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
           </h1>
 
           <p
-            class="text-base sm:text-lg text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200"
+            class="text-lg sm:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             Explore dicas de performance, arquitetura moderna, melhores práticas
             e fique por dentro das últimas novidades do ecossistema Angular.
           </p>
 
           <div
-            class="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up animation-delay-400"
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a
               routerLink="/posts"
