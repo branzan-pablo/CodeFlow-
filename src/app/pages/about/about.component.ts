@@ -6,7 +6,7 @@ import { SeoService } from '../../services/seo.service';
   selector: 'app-about',
   imports: [RouterLink],
   template: `
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div class="container-article py-6 sm:py-8">
       <!-- Header -->
       <div class="text-center mb-8 sm:mb-12">
         <h1 class="text-responsive-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -327,7 +327,7 @@ import { SeoService } from '../../services/seo.service';
                   <!-- Social Links -->
                   <div class="flex gap-3">
                     <a
-                      href="https://github.com/PabloFBDev"
+                      href="https://github.com/PabloFerreiraB"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="p-3 rounded-lg bg-gray-100 hover:bg-gray-900 text-gray-700 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"

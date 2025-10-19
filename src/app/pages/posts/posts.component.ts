@@ -12,7 +12,7 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
     <div class="bg-gray-50">
       <!-- Header with Filters -->
       <div class="bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div class="container-wide py-6 sm:py-8">
           <!-- Header -->
           <div class="text-center mb-8">
             <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-3">

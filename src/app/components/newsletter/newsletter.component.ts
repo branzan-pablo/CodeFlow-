@@ -338,9 +338,9 @@ export class NewsletterComponent {
 
   getContainerClasses(): string {
     if (this.variant() === 'full') {
-      return 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center';
+      return 'container-article text-center py-16';
     }
-    return 'max-w-2xl mx-auto px-4 sm:px-6 py-8 bg-white border-2 border-gray-200 rounded-2xl shadow-sm';
+    return 'container-narrow py-8 bg-white border-2 border-gray-200 rounded-2xl shadow-sm';
   }
 
   getHeaderClasses(): string {
@@ -366,7 +366,7 @@ export class NewsletterComponent {
 
   getFormWrapperClasses(): string {
     if (this.variant() === 'full') {
-      return 'max-w-2xl mx-auto space-y-6';
+      return 'container-narrow space-y-6';
     }
     return 'space-y-6';
   }

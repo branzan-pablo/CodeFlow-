@@ -7,7 +7,7 @@ import { Post } from '../../models/post.interface';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container-wide">
       @if (title() || subtitle()) {
       <div class="text-center mb-10 sm:mb-14">
         @if (title()) {

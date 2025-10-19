@@ -9,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
   selector: 'app-newsletter-page',
   imports: [CommonModule, FormsModule, RouterLink],
   template: `
-    <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="container-article py-8">
       <!-- Header -->
       <div class="text-center mb-12">
         <div

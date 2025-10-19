@@ -23,7 +23,7 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
   imports: [RouterLink, NewsletterComponent],
   template: `
     @if (post(); as currentPost) {
-    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <article class="container-article py-8">
       <!-- Breadcrumb -->
       <nav class="mb-8">
         <ol class="flex items-center space-x-2 text-sm text-gray-500">
@@ -222,12 +222,12 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
     </article>
 
     <!-- Newsletter Section -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="container-article py-8">
       <app-newsletter [source]="'post-detail'" [variant]="'compact'" />
     </div>
     } @else {
     <!-- Post not found -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <div class="container-article py-16 text-center">
       <svg
         class="mx-auto h-16 w-16 text-gray-400 mb-4"
         fill="none"

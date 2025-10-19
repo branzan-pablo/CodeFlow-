@@ -170,6 +170,115 @@ html {
 }
 
 /* ========================================
+   CONTAINER UTILITIES - DESIGN SYSTEM
+   ======================================== */
+
+/**
+ * Classes de container padronizadas para manter consistência
+ * de larguras em todo o projeto seguindo padrões de mercado
+ * (Medium, Vercel, Stripe, etc.)
+ */
+
+/* Container para artigos e conteúdo de leitura (896px) */
+.container-article {
+  max-width: 56rem;
+  /* 896px - max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  /* 16px */
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-article {
+    padding-left: 1.5rem;
+    /* 24px */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-article {
+    padding-left: 2rem;
+    /* 32px */
+    padding-right: 2rem;
+  }
+}
+
+/* Container amplo para grids, listagens e dashboards (1280px) */
+.container-wide {
+  max-width: 80rem;
+  /* 1280px - max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Container estreito para formulários e leitura focada (672px) */
+.container-narrow {
+  max-width: 42rem;
+  /* 672px - max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-narrow {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Container para header e footer (1152px) */
+.container-header {
+  max-width: 72rem;
+  /* 1152px - max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-header {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ========================================
    TAILWIND TYPOGRAPHY - PROSE
    ======================================== */
 

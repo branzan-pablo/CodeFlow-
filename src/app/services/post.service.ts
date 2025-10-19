@@ -137,10 +137,10 @@ export class PostService {
     const author: Author = {
       id: 1,
       name: 'Pablo Ferreira',
-      bio: 'Desenvolvedor Full-Stack apaixonado por tecnologia e inovação.',
+      bio: 'Desenvolvedor Front-End Sênior apaixonado por tecnologia e inovação.',
       avatar: '/images/avatar.svg',
       socialLinks: {
-        github: 'https://github.com/PabloFBDev',
+        github: 'https://github.com/PabloFerreiraB',
         linkedin: 'https://linkedin.com/in/pablo-ferreira-31a79524b',
       },
     };

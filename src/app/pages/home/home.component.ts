@@ -22,7 +22,7 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
         aria-hidden="true"
       ></div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative container-wide">
         <div class="text-center">
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
@@ -56,7 +56,7 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
 
     <!-- Explore More Button -->
     <section class="pt-2 pb-8 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="container-wide text-center">
         <a
           routerLink="/posts"
           class="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"

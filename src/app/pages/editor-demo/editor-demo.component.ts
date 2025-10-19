@@ -8,7 +8,7 @@ import { SeoService } from '../../services/seo.service';
   imports: [CommonModule, MarkdownEditorComponent],
   template: `
     <div class="min-h-screen bg-gray-100 py-8">
-      <div class="max-w-6xl mx-auto px-4">
+      <div class="container-header">
         <!-- Header -->
         <div class="mb-8">
           <h1 class="text-3xl font-bold text-gray-900 mb-2">

@@ -72,7 +72,7 @@ src/app/
 
 ```bash
 # Clone o repositório
-git clone https://github.com/PabloFBDev/blog.git
+git clone https://github.com/PabloFerreiraB/blog.git
 cd blog
 
 # Instale as dependências
@@ -231,7 +231,7 @@ vercel --prod
 - 9+ anos de experiência em desenvolvimento frontend
 - 12 anos de trajetória em tecnologia
 
-[![GitHub](https://img.shields.io/badge/GitHub-PabloFBDev-181717?style=flat&logo=github)](https://github.com/PabloFBDev)
+[![GitHub](https://img.shields.io/badge/GitHub-PabloFBDev-181717?style=flat&logo=github)](https://github.com/PabloFerreiraB)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-pabloferreirab-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/pabloferreirab)
 
 ## 📄 Licença
