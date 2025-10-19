@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  
+
   /* Respeita safe areas (notch, câmera frontal, etc) */
   padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
 
@@ -23,7 +23,7 @@ body {
 
   /* Melhora scroll no iOS */
   -webkit-overflow-scrolling: touch;
-  
+
   /* Força altura mínima no mobile (resolve problema de barra de navegação) */
   min-height: 100vh;
   min-height: -webkit-fill-available;
