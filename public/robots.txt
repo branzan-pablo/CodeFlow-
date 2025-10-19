@@ -1,0 +1,22 @@
+# robots.txt - CodeFlow Angular Blog
+# Permite que todos os motores de busca indexem o site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://codeflow-angular.vercel.app/sitemap.xml
+
+# Otimizações específicas
+# Bloqueia arquivos sensíveis
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Crawl-delay para bots agressivos
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
