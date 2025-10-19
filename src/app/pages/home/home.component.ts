@@ -79,11 +79,11 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
       </div>
     </section>
 
-    <!-- Newsletter CTA -->
+    <!-- Newsletter Section -->
     <section
       class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-16"
     >
-      <app-newsletter [source]="'homepage'" />
+      <app-newsletter [source]="'homepage'" [variant]="'full'" />
     </section>
   `,
   styleUrl: './home.component.scss',

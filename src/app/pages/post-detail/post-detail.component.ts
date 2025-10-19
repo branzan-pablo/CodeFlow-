@@ -16,11 +16,11 @@ import {
 } from '../../services/structured-data.service';
 import { Post } from '../../models/post.interface';
 import { Title, Meta } from '@angular/platform-browser';
-import { NewsletterCompactComponent } from '../../components/newsletter/newsletter-compact.component';
+import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
 
 @Component({
   selector: 'app-post-detail',
-  imports: [RouterLink, NewsletterCompactComponent],
+  imports: [RouterLink, NewsletterComponent],
   template: `
     @if (post(); as currentPost) {
     <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -171,19 +171,15 @@ import { NewsletterCompactComponent } from '../../components/newsletter/newslett
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           @for (relatedPost of relatedPosts(); track relatedPost.id) {
           <article
-            class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+            [routerLink]="['/posts', relatedPost.slug]"
+            class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border-2 border-gray-100 hover:border-blue-500 cursor-pointer"
           >
             <div
               class="h-32 bg-gradient-to-br from-blue-100 to-purple-100"
             ></div>
             <div class="p-4">
               <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-                <a
-                  [routerLink]="['/posts', relatedPost.slug]"
-                  class="hover:text-blue-600 transition-colors"
-                >
-                  {{ relatedPost.title }}
-                </a>
+                {{ relatedPost.title }}
               </h3>
               <p class="text-gray-600 text-sm mb-3 line-clamp-2">
                 {{ relatedPost.excerpt }}
@@ -227,7 +223,7 @@ import { NewsletterCompactComponent } from '../../components/newsletter/newslett
 
     <!-- Newsletter Section -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <app-newsletter-compact [source]="'post-detail'" />
+      <app-newsletter [source]="'post-detail'" [variant]="'compact'" />
     </div>
     } @else {
     <!-- Post not found -->
