@@ -14,7 +14,7 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
   imports: [RouterLink, NewsletterComponent, PostGridComponent],
   template: `
     <section
-      class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-20 sm:py-24 lg:py-32"
+      class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 py-10 sm:py-12 lg:py-16"
     >
       <!-- Background Pattern -->
       <div
@@ -36,54 +36,55 @@ import { PostGridComponent } from '../../components/post-grid/post-grid.componen
           </h1>
 
           <p
-            class="text-lg sm:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed"
+            class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed"
           >
             Explore dicas de performance, arquitetura moderna, melhores práticas
             e fique por dentro das últimas novidades do ecossistema Angular.
           </p>
-
-          <div
-            class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <a
-              routerLink="/posts"
-              class="group inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-xl text-blue-600 bg-white hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-            >
-              Explorar Artigos
-              <svg
-                class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                ></path>
-              </svg>
-            </a>
-            <a
-              routerLink="/sobre"
-              class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-xl text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
-            >
-              Sobre o Blog
-            </a>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Latest Posts Grid -->
-    <app-post-grid
-      [posts]="latestPosts()"
-      title="Últimos Artigos"
-      subtitle="Confira os posts mais recentes e fique por dentro das novidades"
-    />
+    <section class="py-12 sm:py-16 bg-white">
+      <app-post-grid
+        [posts]="latestPosts()"
+        title="Últimos Artigos"
+        subtitle="Confira os posts mais recentes e fique por dentro das novidades"
+      />
+    </section>
+
+    <!-- Explore More Button -->
+    <section class="pt-2 pb-8 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <a
+          routerLink="/posts"
+          class="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        >
+          Mostrar Todos os Artigos
+          <svg
+            class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </section>
 
     <!-- Newsletter CTA -->
-    <app-newsletter [source]="'homepage'" />
+    <section
+      class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-16"
+    >
+      <app-newsletter [source]="'homepage'" />
+    </section>
   `,
   styleUrl: './home.component.scss',
 })

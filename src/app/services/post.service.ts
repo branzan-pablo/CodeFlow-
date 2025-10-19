@@ -541,6 +541,492 @@ Docker pode revolucionar seu workflow de desenvolvimento frontend.`,
         metaDescription:
           'Guia completo sobre como usar Docker para desenvolvimento de aplicações frontend.',
       },
+      {
+        id: 7,
+        title: 'RxJS Avançado: Dominando Operadores Complexos',
+        slug: 'rxjs-avancado-operadores',
+        excerpt:
+          'Aprenda a usar operadores RxJS avançados como switchMap, mergeMap, concatMap e exhaustMap. Entenda quando e como aplicar cada um para criar aplicações reativas eficientes.',
+        content: `# RxJS Avançado: Dominando Operadores Complexos
+
+RxJS é uma biblioteca poderosa para programação reativa. Neste guia, vamos explorar operadores avançados que todo desenvolvedor Angular deve dominar.
+
+## Operadores de Transformação
+
+### switchMap vs mergeMap vs concatMap
+
+\`\`\`typescript
+// switchMap - cancela requisições anteriores
+searchInput$.pipe(
+  debounceTime(300),
+  switchMap(term => this.api.search(term))
+).subscribe(results => console.log(results));
+
+// mergeMap - executa em paralelo
+ids$.pipe(
+  mergeMap(id => this.api.getDetails(id))
+).subscribe(details => console.log(details));
+
+// concatMap - executa em sequência
+operations$.pipe(
+  concatMap(op => this.processOperation(op))
+).subscribe(result => console.log(result));
+\`\`\`
+
+## Error Handling
+
+Use catchError e retry para lidar com erros:
+
+\`\`\`typescript
+this.http.get(url).pipe(
+  retry(3),
+  catchError(error => {
+    console.error('Error:', error);
+    return of(null);
+  })
+).subscribe();
+\`\`\`
+
+## Conclusão
+
+Dominar RxJS é essencial para criar aplicações Angular profissionais.`,
+        author,
+        publishedAt: '2025-10-02T09:20:00Z',
+        tags: ['RxJS', 'Angular', 'Reactive Programming', 'TypeScript'],
+        category: categories[0],
+        readTime: 12,
+        featured: true,
+        metaDescription:
+          'Guia avançado de operadores RxJS com exemplos práticos em Angular.',
+      },
+      {
+        id: 8,
+        title: 'Testing em Angular: Jest vs Karma',
+        slug: 'testing-angular-jest-karma',
+        excerpt:
+          'Compare Jest e Karma para testes em Angular. Descubra as vantagens de cada ferramenta, como configurar e migrar seus testes para obter melhor performance.',
+        content: `# Testing em Angular: Jest vs Karma
+
+Escolher a ferramenta de testes certa pode impactar significativamente a produtividade da equipe. Vamos comparar Jest e Karma.
+
+## Jest - Vantagens
+
+- ⚡ Execução paralela e mais rápida
+- 📸 Snapshot testing integrado
+- 🔍 Melhor experiência de debugging
+- 🎯 Zero configuração
+
+\`\`\`typescript
+describe('MeuComponent', () => {
+  it('should create', () => {
+    const component = new MeuComponent();
+    expect(component).toBeTruthy();
+  });
+  
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(MeuComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h1')?.textContent)
+      .toContain('Welcome');
+  });
+});
+\`\`\`
+
+## Migrando de Karma para Jest
+
+1. Instale as dependências
+2. Configure jest.config.js
+3. Atualize os scripts do package.json
+4. Remova arquivos do Karma
+
+## Conclusão
+
+Jest oferece melhor DX e performance para projetos Angular modernos.`,
+        author,
+        publishedAt: '2025-10-01T14:30:00Z',
+        tags: ['Testing', 'Jest', 'Karma', 'Angular', 'TDD'],
+        category: categories[0],
+        readTime: 8,
+        featured: false,
+        metaDescription:
+          'Comparação completa entre Jest e Karma para testes em Angular.',
+      },
+      {
+        id: 9,
+        title: 'State Management: NgRx vs Signals',
+        slug: 'state-management-ngrx-signals',
+        excerpt:
+          'Análise comparativa entre NgRx e Angular Signals para gerenciamento de estado. Entenda quando usar cada abordagem e como migrar de NgRx para signals.',
+        content: `# State Management: NgRx vs Signals
+
+O Angular Signals trouxe uma alternativa nativa ao NgRx. Vamos comparar as duas abordagens.
+
+## NgRx - Store Tradicional
+
+\`\`\`typescript
+// State
+export interface AppState {
+  counter: number;
+}
+
+// Actions
+export const increment = createAction('[Counter] Increment');
+
+// Reducer
+export const counterReducer = createReducer(
+  initialState,
+  on(increment, state => ({ ...state, counter: state.counter + 1 }))
+);
+
+// Component
+this.store.dispatch(increment());
+this.count$ = this.store.select(state => state.counter);
+\`\`\`
+
+## Angular Signals - Abordagem Moderna
+
+\`\`\`typescript
+// Service
+@Injectable({ providedIn: 'root' })
+export class CounterService {
+  private count = signal(0);
+  readonly counter = this.count.asReadonly();
+  
+  increment() {
+    this.count.update(n => n + 1);
+  }
+}
+
+// Component
+constructor(private counterService: CounterService) {}
+count = this.counterService.counter;
+\`\`\`
+
+## Quando usar cada um?
+
+- **NgRx**: Apps grandes, time grande, histórico de ações
+- **Signals**: Apps pequenos/médios, simplicidade, performance
+
+## Conclusão
+
+Signals são o futuro do state management em Angular!`,
+        author,
+        publishedAt: '2025-09-30T10:15:00Z',
+        tags: ['State Management', 'NgRx', 'Signals', 'Angular'],
+        category: categories[0],
+        readTime: 11,
+        featured: true,
+        metaDescription:
+          'Comparação entre NgRx e Angular Signals para gerenciamento de estado.',
+      },
+      {
+        id: 10,
+        title: 'TypeScript 5.5: Novidades e Recursos',
+        slug: 'typescript-5-5-novidades',
+        excerpt:
+          'Explore as novidades do TypeScript 5.5: inferência de tipos melhorada, decorators estáveis, performance otimizada e novos utilitários de tipos.',
+        content: `# TypeScript 5.5: Novidades e Recursos
+
+O TypeScript 5.5 traz melhorias significativas. Vamos explorar as principais novidades.
+
+## Inferência de Tipos Melhorada
+
+\`\`\`typescript
+// Antes: precisava especificar o tipo
+const result: { name: string; age: number } = processUser(data);
+
+// Agora: inferência automática mais inteligente
+const result = processUser(data); // tipo inferido corretamente
+\`\`\`
+
+## Decorators Estáveis
+
+\`\`\`typescript
+function log(target: any, propertyKey: string) {
+  console.log(\`Método \${propertyKey} foi chamado\`);
+}
+
+class UserService {
+  @log
+  getUser(id: number) {
+    return this.http.get(\`/users/\${id}\`);
+  }
+}
+\`\`\`
+
+## Novos Utilitários de Tipos
+
+\`\`\`typescript
+// Awaited - extrai tipo de Promise
+type Result = Awaited<Promise<string>>; // string
+
+// Partial Deep
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+\`\`\`
+
+## Performance
+
+- Compilação 20% mais rápida
+- Menor uso de memória
+- Melhor suporte a monorepos
+
+## Conclusão
+
+TypeScript 5.5 é uma atualização essencial para desenvolvedores modernos.`,
+        author,
+        publishedAt: '2025-09-28T16:00:00Z',
+        tags: ['TypeScript', 'JavaScript', 'Programming', 'Web Development'],
+        category: categories[1],
+        readTime: 9,
+        featured: false,
+        metaDescription: 'Descubra as novidades e recursos do TypeScript 5.5.',
+      },
+      {
+        id: 11,
+        title: 'Micro Frontends com Angular',
+        slug: 'micro-frontends-angular',
+        excerpt:
+          'Aprenda a implementar arquitetura de micro frontends em Angular usando Module Federation. Divida sua aplicação em partes independentes e escaláveis.',
+        content: `# Micro Frontends com Angular
+
+Micro frontends permitem escalar aplicações grandes dividindo-as em partes menores e independentes.
+
+## Module Federation
+
+\`\`\`javascript
+// webpack.config.js
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+
+module.exports = {
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'app1',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Component': './src/app/my-component/my-component.module.ts'
+      },
+      shared: ['@angular/core', '@angular/common']
+    })
+  ]
+};
+\`\`\`
+
+## Arquitetura Shell + Remote
+
+\`\`\`typescript
+// Shell App - carrega remotes
+const routes: Routes = [
+  {
+    path: 'dashboard',
+    loadChildren: () => 
+      loadRemoteModule('dashboard', './Module')
+  }
+];
+\`\`\`
+
+## Vantagens
+
+- 🚀 Deploy independente
+- 👥 Times autônomos
+- 🔄 Atualizações isoladas
+- 📦 Reuso de código
+
+## Desafios
+
+- Complexidade de setup
+- Comunicação entre apps
+- Versionamento de dependências
+- Performance inicial
+
+## Conclusão
+
+Micro frontends são ideais para aplicações enterprise de grande escala.`,
+        author,
+        publishedAt: '2025-09-25T11:30:00Z',
+        tags: [
+          'Micro Frontends',
+          'Angular',
+          'Architecture',
+          'Module Federation',
+        ],
+        category: categories[2],
+        readTime: 14,
+        featured: true,
+        metaDescription:
+          'Guia completo de implementação de micro frontends em Angular.',
+      },
+      {
+        id: 12,
+        title: 'CI/CD para Angular com GitHub Actions',
+        slug: 'cicd-angular-github-actions',
+        excerpt:
+          'Configure pipelines de CI/CD completos para projetos Angular usando GitHub Actions. Automação de testes, build, deploy e análise de qualidade.',
+        content: `# CI/CD para Angular com GitHub Actions
+
+Automatize todo o ciclo de desenvolvimento do seu projeto Angular com GitHub Actions.
+
+## Workflow Básico
+
+\`\`\`yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+      
+      - name: Build
+        run: npm run build --prod
+      
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: \${{ secrets.VERCEL_TOKEN }}
+\`\`\`
+
+## Testes e Qualidade
+
+\`\`\`yaml
+- name: Run linter
+  run: npm run lint
+
+- name: Check code coverage
+  run: npm run test:coverage
+
+- name: SonarQube Scan
+  uses: sonarsource/sonarqube-scan-action@master
+\`\`\`
+
+## Cache e Performance
+
+Use cache para acelerar builds:
+
+\`\`\`yaml
+- uses: actions/cache@v3
+  with:
+    path: ~/.npm
+    key: \${{ runner.os }}-node-\${{ hashFiles('**/package-lock.json') }}
+\`\`\`
+
+## Conclusão
+
+GitHub Actions oferece CI/CD poderoso e gratuito para projetos open source.`,
+        author,
+        publishedAt: '2025-09-22T13:45:00Z',
+        tags: ['CI/CD', 'GitHub Actions', 'DevOps', 'Angular', 'Automation'],
+        category: categories[3],
+        readTime: 10,
+        featured: false,
+        metaDescription:
+          'Configure pipelines CI/CD completos para Angular com GitHub Actions.',
+      },
+      {
+        id: 13,
+        title: 'Web Performance: Core Web Vitals',
+        slug: 'web-performance-core-web-vitals',
+        excerpt:
+          'Otimize seus Core Web Vitals (LCP, FID, CLS) em aplicações Angular. Técnicas práticas para melhorar performance e SEO do seu site.',
+        content: `# Web Performance: Core Web Vitals
+
+Core Web Vitals são métricas essenciais para SEO e UX. Vamos otimizá-las em Angular.
+
+## LCP - Largest Contentful Paint
+
+Melhore o tempo de carregamento do maior elemento:
+
+\`\`\`typescript
+// Preload imagens críticas
+<link rel="preload" as="image" href="hero.jpg">
+
+// Use NgOptimizedImage
+<img ngSrc="hero.jpg" 
+     width="1200" 
+     height="600" 
+     priority>
+\`\`\`
+
+## FID - First Input Delay
+
+Reduza o bloqueio da thread principal:
+
+\`\`\`typescript
+// Lazy loading de componentes
+const routes: Routes = [
+  {
+    path: 'heavy',
+    loadComponent: () => import('./heavy/heavy.component')
+  }
+];
+
+// Use defer para carregar sob demanda
+@defer (on viewport) {
+  <app-heavy-component />
+} @placeholder {
+  <app-skeleton />
+}
+\`\`\`
+
+## CLS - Cumulative Layout Shift
+
+Evite mudanças inesperadas no layout:
+
+\`\`\`css
+/* Reserve espaço para imagens */
+img {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}
+
+/* Evite carregamento de fonts que causam shift */
+@font-face {
+  font-family: 'MyFont';
+  font-display: swap;
+}
+\`\`\`
+
+## Ferramentas de Análise
+
+- Lighthouse
+- PageSpeed Insights
+- Web Vitals Extension
+- Chrome DevTools
+
+## Conclusão
+
+Otimizar Core Web Vitals melhora SEO, conversões e experiência do usuário.`,
+        author,
+        publishedAt: '2025-09-20T08:00:00Z',
+        tags: ['Performance', 'Web Vitals', 'SEO', 'Angular', 'Optimization'],
+        category: categories[2],
+        readTime: 13,
+        featured: true,
+        metaDescription:
+          'Guia completo para otimizar Core Web Vitals em aplicações Angular.',
+      },
     ];
   }
 }

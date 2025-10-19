@@ -1,228 +1,137 @@
 import { Component, signal, computed, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 import { PostFilters, Post } from '../../models/post.interface';
-import { FormsModule } from '@angular/forms';
 import { SeoService } from '../../services/seo.service';
+import { PostGridComponent } from '../../components/post-grid/post-grid.component';
 
 @Component({
   selector: 'app-posts',
-  imports: [RouterLink, FormsModule],
+  imports: [FormsModule, PostGridComponent],
   template: `
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-      <!-- Header -->
-      <div class="text-center mb-8 sm:mb-12">
-        <h1 class="text-responsive-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-          Todos os Posts
-        </h1>
-        <p class="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
-          Explore todos os artigos sobre desenvolvimento, tecnologia e inovação.
-        </p>
-      </div>
-
-      <!-- Filters and Search -->
-      <div class="mb-8 space-y-4">
-        <!-- Search -->
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="flex-1">
-            <label for="search" class="sr-only">Buscar posts</label>
-            <div class="relative">
-              <div
-                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-              >
-                <svg
-                  class="h-5 w-5 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
-              </div>
-              <input
-                id="search"
-                type="text"
-                [(ngModel)]="searchTerm"
-                placeholder="Buscar posts..."
-                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-          </div>
-
-          <!-- Clear filters button -->
-          @if (hasActiveFilters()) {
-          <button
-            (click)="clearAllFilters()"
-            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Limpar Filtros
-          </button>
-          }
-        </div>
-
-        <!-- Category and Tag Filters -->
-        <div class="flex flex-wrap gap-4">
-          <!-- Categories -->
-          <div class="flex flex-wrap gap-2">
-            <span class="text-sm font-medium text-gray-700 px-2 py-1"
-              >Categorias:</span
-            >
-            @for (category of postService.categories(); track category.id) {
-            <button
-              (click)="toggleCategoryFilter(category.slug)"
-              [class]="getCategoryButtonClass(category.slug)"
-              class="px-3 py-1 text-xs font-medium rounded-full transition-colors"
-            >
-              {{ category.name }}
-            </button>
-            }
-          </div>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2">
-            <span class="text-sm font-medium text-gray-700 px-2 py-1"
-              >Tags:</span
-            >
-            @for (tag of popularTags(); track tag) {
-            <button
-              (click)="toggleTagFilter(tag)"
-              [class]="getTagButtonClass(tag)"
-              class="px-3 py-1 text-xs font-medium rounded-full transition-colors"
-            >
-              {{ tag }}
-            </button>
-            }
-          </div>
-        </div>
-      </div>
-
-      <!-- Results Count -->
-      <div class="mb-4 sm:mb-6">
-        <p class="text-responsive-sm text-gray-600">
-          {{ filteredPosts().length }}
-          {{
-            filteredPosts().length === 1
-              ? 'post encontrado'
-              : 'posts encontrados'
-          }}
-        </p>
-      </div>
-
-      <!-- Posts Grid -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-      >
-        @for (post of filteredPosts(); track post.id) {
-        <article
-          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-        >
-          <!-- Cover Image Placeholder -->
-          <div
-            class="h-40 sm:h-48 bg-gradient-to-br from-blue-100 to-purple-100 relative"
-          >
-            @if (post.featured) {
-            <div
-              class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium"
-            >
-              Destaque
-            </div>
-            }
-          </div>
-
-          <div class="p-4 sm:p-6">
-            <!-- Category -->
-            <div class="mb-2 sm:mb-3">
-              <span
-                class="inline-block px-2 sm:px-3 py-1 text-xs font-medium rounded-full"
-                [style.background-color]="post.category.color + '20'"
-                [style.color]="post.category.color"
-              >
-                {{ post.category.name }}
-              </span>
-            </div>
-
-            <!-- Title -->
-            <h2
-              class="text-responsive-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2"
-            >
-              <a
-                [routerLink]="['/posts', post.slug]"
-                class="hover:text-blue-600 transition-colors"
-              >
-                {{ post.title }}
-              </a>
-            </h2>
-
-            <!-- Excerpt -->
-            <p
-              class="text-responsive-sm text-gray-600 mb-3 sm:mb-4 line-clamp-3"
-            >
-              {{ post.excerpt }}
+    <div class="bg-gray-50">
+      <!-- Header with Filters -->
+      <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <!-- Header -->
+          <div class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-3">
+              Todos os Posts
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+              Explore todos os artigos sobre desenvolvimento, tecnologia e
+              inovação.
             </p>
+          </div>
 
-            <!-- Meta information -->
-            <div
-              class="flex items-center justify-between text-xs sm:text-sm text-gray-500"
-            >
-              <div class="flex items-center space-x-2 sm:space-x-4">
-                <span>{{ formatDate(post.publishedAt) }}</span>
-                <span>{{ post.readTime }} min</span>
+          <!-- Filters and Search -->
+          <div class="space-y-4">
+            <!-- Search -->
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="flex-1">
+                <label for="search" class="sr-only">Buscar posts</label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <svg
+                      class="h-5 w-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    id="search"
+                    type="text"
+                    [(ngModel)]="searchTerm"
+                    placeholder="Buscar posts..."
+                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
               </div>
-              <a
-                [routerLink]="['/posts', post.slug]"
-                class="text-blue-600 hover:text-blue-800 font-medium transition-colors text-xs sm:text-sm"
-              >
-                Ler mais
-              </a>
-            </div>
 
-            <!-- Tags -->
-            <div class="mt-3 sm:mt-4 flex flex-wrap gap-1 sm:gap-2">
-              @for (tag of post.tags.slice(0, 3); track tag) {
-              <span
-                class="px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-600 text-xs rounded"
+              <!-- Clear filters button -->
+              @if (hasActiveFilters()) {
+              <button
+                (click)="clearAllFilters()"
+                class="px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
               >
-                {{ tag }}
-              </span>
-              } @if (post.tags.length > 3) {
-              <span
-                class="px-2 py-0.5 sm:py-1 bg-gray-100 text-gray-600 text-xs rounded"
-              >
-                +{{ post.tags.length - 3 }}
-              </span>
+                Limpar Filtros
+              </button>
               }
             </div>
+
+            <!-- Category and Tag Filters -->
+            <div class="flex flex-wrap gap-4">
+              <!-- Categories -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-sm font-semibold text-gray-700 mr-2"
+                  >Categorias:</span
+                >
+                @for (category of postService.categories(); track category.id) {
+                <button
+                  (click)="toggleCategoryFilter(category.slug)"
+                  [class]="getCategoryButtonClass(category.slug)"
+                  class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border"
+                >
+                  {{ category.name }}
+                </button>
+                }
+              </div>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-sm font-semibold text-gray-700 mr-2"
+                  >Tags:</span
+                >
+                @for (tag of popularTags(); track tag) {
+                <button
+                  (click)="toggleTagFilter(tag)"
+                  [class]="getTagButtonClass(tag)"
+                  class="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border"
+                >
+                  {{ tag }}
+                </button>
+                }
+              </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="pt-2">
+              <p class="text-sm text-gray-600">
+                <span class="font-semibold text-gray-900">{{
+                  filteredPosts().length
+                }}</span>
+                {{
+                  filteredPosts().length === 1
+                    ? 'post encontrado'
+                    : 'posts encontrados'
+                }}
+              </p>
+            </div>
           </div>
-        </article>
-        } @empty {
-        <div class="col-span-full text-center py-8 sm:py-12">
-          <svg
-            class="mx-auto h-12 w-12 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            ></path>
-          </svg>
-          <h3 class="mt-2 text-sm font-medium text-gray-900">
-            Nenhum post encontrado
-          </h3>
-          <p class="mt-1 text-sm text-gray-500">
-            Tente ajustar os filtros ou a busca.
-          </p>
         </div>
-        }
       </div>
+
+      <!-- Posts Grid usando PostGridComponent -->
+      <section class="py-12 sm:py-16 bg-gray-50">
+        <app-post-grid
+          [posts]="filteredPosts()"
+          [title]="''"
+          [subtitle]="''"
+          [emptyMessage]="
+            'Nenhum post encontrado. Tente ajustar os filtros ou a busca.'
+          "
+        />
+      </section>
     </div>
   `,
   styleUrl: './posts.component.scss',
@@ -313,15 +222,6 @@ export class PostsComponent implements OnInit {
     return isSelected
       ? 'bg-green-600 text-white border-green-600'
       : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50';
-  }
-
-  protected formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
   }
 
   private filterPostsLocally(filters: PostFilters): Post[] {
