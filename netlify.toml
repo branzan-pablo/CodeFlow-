@@ -1,0 +1,21 @@
+﻿[build]
+  command = "npm run build"
+  publish = "dist/blog/browser"
+
+# Regras de redirect - processadas ANTES do Angular
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# Angular SSR - todas as outras rotas
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
