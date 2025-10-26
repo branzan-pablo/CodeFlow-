@@ -1,0 +1,166 @@
+# Configuração do Decap CMS (antigo Netlify CMS)
+# Documentação: https://decapcms.org/docs/intro/
+
+# Backend - Configuração do GitHub
+backend:
+  name: git-gateway
+  branch: main # Branch principal do repositório
+
+# Habilita modo de rascunho/revisão/publicação
+publish_mode: editorial_workflow
+
+# Configuração de mídia (imagens)
+media_folder: "public/assets/images/uploads" # Onde as imagens serão salvas no repositório
+public_folder: "/assets/images/uploads" # Path público para as imagens no site
+
+# Configuração regional
+locale: "pt"
+
+# Coleções (tipos de conteúdo)
+collections:
+  # Posts do Blog
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: true
+    fields:
+      # Metadados básicos
+      - { label: "Título", name: "title", widget: "string", required: true }
+      - {
+          label: "Slug (URL)",
+          name: "slug",
+          widget: "string",
+          required: true,
+          pattern:
+            [
+              "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "Apenas letras minúsculas, números e hífens",
+            ],
+        }
+      - {
+          label: "Resumo",
+          name: "excerpt",
+          widget: "text",
+          required: true,
+          hint: "Descrição curta do post (150-200 caracteres)",
+        }
+
+      # Conteúdo
+      - { label: "Conteúdo", name: "body", widget: "markdown", required: true }
+
+      # Categorização
+      - label: "Categoria"
+        name: "category"
+        widget: "select"
+        required: true
+        options:
+          - { label: "Tecnologia", value: "tecnologia" }
+          - { label: "Desenvolvimento Web", value: "desenvolvimento-web" }
+          - { label: "JavaScript", value: "javascript" }
+          - { label: "Angular", value: "angular" }
+          - { label: "Tutorial", value: "tutorial" }
+          - { label: "Dicas", value: "dicas" }
+          - { label: "Carreira", value: "carreira" }
+          - { label: "Opinião", value: "opiniao" }
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Adicione tags relevantes para o post"
+        field: { label: "Tag", name: "tag", widget: "string" }
+
+      # Imagem destacada
+      - {
+          label: "Imagem Destacada",
+          name: "featured_image",
+          widget: "image",
+          required: false,
+          hint: "Imagem principal do post",
+        }
+      - {
+          label: "Alt da Imagem",
+          name: "featured_image_alt",
+          widget: "string",
+          required: false,
+          hint: "Descrição da imagem para acessibilidade",
+        }
+
+      # Status de publicação
+      - {
+          label: "Post em Destaque",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          label: "Data de Publicação",
+          name: "published_at",
+          widget: "datetime",
+          format: "YYYY-MM-DDTHH:mm:ssZ",
+          date_format: "DD/MM/YYYY",
+          time_format: "HH:mm",
+          required: true,
+        }
+
+      # Autor
+      - label: "Autor"
+        name: "author"
+        widget: "object"
+        required: true
+        fields:
+          - { label: "Nome", name: "name", widget: "string", required: true }
+          - {
+              label: "Avatar URL",
+              name: "avatar",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Bio", name: "bio", widget: "text", required: false }
+
+      # SEO
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - {
+              label: "Título SEO",
+              name: "title",
+              widget: "string",
+              required: false,
+              hint: "Deixe em branco para usar o título do post",
+            }
+          - {
+              label: "Descrição SEO",
+              name: "description",
+              widget: "text",
+              required: false,
+              hint: "Deixe em branco para usar o resumo do post",
+            }
+          - {
+              label: "Palavras-chave",
+              name: "keywords",
+              widget: "string",
+              required: false,
+              hint: "Separadas por vírgula",
+            }
+
+      # Tempo de leitura (calculado automaticamente no frontend)
+      - {
+          label: "Tempo de Leitura (minutos)",
+          name: "reading_time",
+          widget: "number",
+          required: false,
+          value_type: "int",
+          min: 1,
+          hint: "Deixe em branco para calcular automaticamente",
+        }
