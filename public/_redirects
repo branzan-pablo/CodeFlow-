@@ -1,6 +1,6 @@
-﻿# Redirecionar /admin para o arquivo estático do Decap CMS
-/admin              /admin/index.html           200
-/admin/*            /admin/:splat               200
+﻿# Redirecionar /admin para o arquivo estático do Decap CMS (força rewrite)
+/admin /admin/index.html 200!
+/admin/* /admin/:splat 200
 
 # Todas as outras rotas vão para o Angular
-/*                  /index.html                 200
+/* /index.html 200
