@@ -2,7 +2,11 @@
   command = "npm run build"
   publish = "dist/blog/browser"
 
-# Regras de redirect - processadas ANTES do Angular
+# Desabilitar autodetect do Angular
+[build.environment]
+  NETLIFY_USE_YARN = "false"
+
+# Regras de redirect
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
@@ -14,7 +18,6 @@
   to = "/admin/:splat"
   status = 200
 
-# Angular SSR - todas as outras rotas
 [[redirects]]
   from = "/*"
   to = "/index.html"
