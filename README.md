@@ -5,19 +5,23 @@
 [![Angular](https://img.shields.io/badge/Angular-20.1-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://www.netlify.com/)
+[![Decap CMS](https://img.shields.io/badge/CMS-Decap-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://decapcms.org/)
 
 ## ✨ Features
 
 - 🎯 **Angular 20** com Zoneless Change Detection
 - ⚡ **Server-Side Rendering (SSR)** + Prerendering híbrido
 - 🎨 **Tailwind CSS v4** com nova sintaxe `@use`
-- � **Editor Markdown** com syntax highlighting (Prism.js)
+- 📝 **Decap CMS** - Sistema de gerenciamento de conteúdo headless
+- ✍️ **Editor Markdown** com syntax highlighting (Prism.js)
 - 🔍 **SEO Otimizado** com meta tags dinâmicas e Structured Data (JSON-LD)
 - 📬 **Newsletter** integrada com EmailJS
 - 🖼️ **Gerenciamento de Imagens** com upload e galeria
-- � **HTTP Transfer Cache** para evitar duplicação de requisições
+- 🔄 **HTTP Transfer Cache** para evitar duplicação de requisições
 - 📱 **Design Responsivo** e acessível (WCAG)
 - 🧪 **Type-Safe** com TypeScript strict mode
+- 🚀 **Deploy Automático** no Netlify com Git Gateway
 
 ## 🏗️ Arquitetura
 
@@ -176,22 +180,45 @@ emailjs.init("YOUR_PUBLIC_KEY"); // Configure EmailJS
 
 ## 🌐 Deploy
 
-### Plataformas Recomendadas
+### 🚀 Deploy Rápido com Netlify + Decap CMS
 
-- **Vercel** - Deploy automático com SSR
-- **Netlify** - Suporte a SSR com Netlify Edge Functions
+Este projeto está configurado para deploy no **Netlify** com **Decap CMS** (headless CMS).
+
+#### Deploy em 3 Passos:
+
+```powershell
+# 1. Push para GitHub
+git push origin main
+
+# 2. Deploy no Netlify via interface web
+# Acesse: https://app.netlify.com
+# Import from GitHub → Selecione o repositório
+
+# 3. Configure Decap CMS
+# Habilite Identity e Git Gateway no painel do Netlify
+```
+
+#### 📚 Guias Completos:
+
+- **[QUICK_DEPLOY.md](QUICK_DEPLOY.md)** - Resumo rápido em 3 passos
+- **[DEPLOY_GUIDE.md](DEPLOY_GUIDE.md)** - Guia detalhado completo
+- **[DECAP_CMS_SETUP.md](DECAP_CMS_SETUP.md)** - Detalhes técnicos do CMS
+
+#### ✨ Recursos Incluídos:
+
+- ✅ **Decap CMS** configurado em `/admin`
+- ✅ **Git Gateway** para autenticação
+- ✅ **Editorial Workflow** (Rascunho → Revisão → Publicação)
+- ✅ **Upload de Imagens** integrado
+- ✅ **Editor Markdown** visual
+- ✅ **Netlify.toml** pré-configurado
+- ✅ **Redirects** para SSR otimizados
+
+### Outras Plataformas
+
+- **Vercel** - Deploy alternativo com SSR (veja `vercel.json`)
 - **Azure Static Web Apps** - Hosting gratuito com SSR
 - **Railway** - Deploy containerizado
-
-### Exemplo de Deploy (Vercel)
-
-```bash
-# Instale Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
 
 ## � Tecnologias e Dependências
 
