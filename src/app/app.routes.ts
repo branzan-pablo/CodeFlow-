@@ -49,13 +49,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/terms/terms.component').then((m) => m.TermsComponent),
   },
-  {
-    path: 'admin',
-    loadComponent: () =>
-      import('./pages/admin-redirect/admin-redirect.component').then(
-        (m) => m.AdminRedirectComponent
-      ),
-  },
+  // NOTA: A rota /admin NÃO deve estar aqui
+  // O Decap CMS é servido como arquivo estático via public/admin/
+  // Redirects em _redirects e netlify.toml lidam com isso
   {
     path: '**',
     redirectTo: '',
