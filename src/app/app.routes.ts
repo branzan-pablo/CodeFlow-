@@ -50,6 +50,13 @@ export const routes: Routes = [
       import('./pages/terms/terms.component').then((m) => m.TermsComponent),
   },
   {
+    path: 'admin',
+    loadComponent: () =>
+      import('./pages/admin-redirect/admin-redirect.component').then(
+        (m) => m.AdminRedirectComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
