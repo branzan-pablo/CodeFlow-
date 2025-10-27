@@ -2,12 +2,15 @@
   command = "npm run build"
   publish = "dist/blog/browser"
 
-# Desabilitar framework detection e plugin Angular
+# Configuração de ambiente
 [build.environment]
+  NODE_VERSION = "20"
   NETLIFY_USE_YARN = "false"
-  NETLIFY_USE_ANGULAR_RUNTIME = "false"
+  # IMPORTANTE: Deixe o Angular runtime habilitado para SSR automático com Edge Functions
+  # NETLIFY_USE_ANGULAR_RUNTIME = "true" é o padrão, não precisa declarar
 
-# Regras de redirect
+# Regras de redirect para Decap CMS
+# O admin deve servir arquivos estáticos, não passar pelo Angular
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
@@ -19,7 +22,14 @@
   to = "/admin/:splat"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# NOTA: Para SSR Angular, o Netlify usa Edge Functions automaticamente
+# Não é necessário adicionar redirect /* → /index.html
+# Isso é tratado pelo Angular runtime do Netlify
+
+# Configuração de Image CDN (opcional)
+# Descomente e configure se usar NgOptimizedImage com imagens de outros domínios
+# [images]
+#   remote_images = [
+#     "https://exemplo.com/.*",
+#     "https://cdn.exemplo.com/.*"
+#   ]

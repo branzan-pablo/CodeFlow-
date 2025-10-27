@@ -2,6 +2,18 @@
 
 Este guia mostra como fazer o deploy completo do seu blog Angular com Decap CMS headless usando GitHub e Netlify.
 
+## ⚡ Otimizações Incluídas
+
+Este projeto está **otimizado** para Netlify seguindo as [melhores práticas oficiais](https://docs.netlify.com/build/frameworks/framework-setup-guides/angular/):
+
+- ✅ **SSR com Edge Functions** - Renderização no Edge para máxima performance
+- ✅ **Detecção Automática de Framework** - Configuração simplificada
+- ✅ **Prerendering Híbrido** - Páginas estáticas + dinâmicas
+- ✅ **Netlify Image CDN** - Otimização automática de imagens
+- ✅ **Redirects Otimizados** - Apenas para rotas necessárias (CMS)
+
+> 📖 Veja detalhes técnicos em: [NETLIFY_OPTIMIZATIONS.md](./NETLIFY_OPTIMIZATIONS.md)
+
 ## 📋 Pré-requisitos
 
 - ✅ Conta no GitHub
@@ -46,6 +58,7 @@ git push -u origin main
 ### 1.3. Verificar Arquivos Commitados
 
 Certifique-se que estes arquivos estão no repositório:
+
 - ✅ `netlify.toml` - Configuração de build do Netlify
 - ✅ `public/_redirects` - Regras de redirecionamento
 - ✅ `public/admin/config.yml` - Configuração do Decap CMS
@@ -77,6 +90,7 @@ Na tela de configuração, o Netlify deve detectar automaticamente (via `netlify
 - **Branch to deploy**: `main`
 
 Se precisar configurar manualmente:
+
 ```
 Base directory: (deixe em branco)
 Build command: npm run build
@@ -171,6 +185,7 @@ O Decap CMS usa um workflow de 3 etapas:
 3. **Ready** (Pronto): Posts aprovados para publicação
 
 Para publicar:
+
 1. Arraste o post de **Drafts** → **Ready**
 2. Clique em **Publish** → **Publish now**
 3. O post será commitado no GitHub e aparecerá no seu blog!
@@ -238,6 +253,7 @@ Se precisar de API keys:
 ### Problema: Build Falha no Netlify
 
 **Solução 1: Verificar Logs**
+
 ```
 1. No Netlify, vá em Deploys
 2. Clique no deploy com falha
@@ -246,16 +262,20 @@ Se precisar de API keys:
 ```
 
 **Solução 2: Testar Build Localmente**
+
 ```powershell
 npm run build
 ```
+
 Se funcionar localmente, o problema pode ser:
+
 - Versão do Node.js diferente
 - Variáveis de ambiente faltando
 
 **Solução 3: Definir Versão do Node.js**
 
 Adicione em `netlify.toml`:
+
 ```toml
 [build.environment]
   NODE_VERSION = "20"
@@ -264,12 +284,14 @@ Adicione em `netlify.toml`:
 ### Problema: CMS Não Carrega
 
 **Verifique:**
+
 1. Git Gateway está habilitado
 2. Identity está habilitado
 3. Você aceitou o convite e criou senha
 4. Tente acessar em janela anônima (limpa cache)
 
 **Solução:**
+
 ```powershell
 # Limpar cache do navegador e tentar novamente
 # Ou acessar: https://seu-site.netlify.app/admin/index.html
@@ -278,11 +300,13 @@ Adicione em `netlify.toml`:
 ### Problema: Posts Não Aparecem no Site
 
 **Verifique:**
+
 1. Deploy do Netlify foi concluído com sucesso
 2. Arquivo `.md` foi criado em `src/content/posts/`
 3. `PostService` está lendo os arquivos corretamente
 
 **Solução:**
+
 ```powershell
 # Verificar arquivos localmente
 git pull origin main
@@ -292,6 +316,7 @@ ls src/content/posts/
 ### Problema: Imagens Não Aparecem
 
 **Verifique:**
+
 1. Path em `config.yml` está correto:
    ```yaml
    media_folder: "public/assets/images/uploads"
@@ -301,6 +326,7 @@ ls src/content/posts/
 3. Deploy incluiu as imagens
 
 **Solução:**
+
 ```powershell
 # Criar pasta se não existir
 mkdir -p public/assets/images/uploads
@@ -314,12 +340,14 @@ git push
 ## 8️⃣ Checklist Final
 
 ### ✅ GitHub
+
 - [ ] Repositório criado e público
 - [ ] Código commitado e pushed
 - [ ] Branch `main` existe
 - [ ] Arquivos `netlify.toml` e `public/admin/*` presentes
 
 ### ✅ Netlify
+
 - [ ] Site criado e conectado ao GitHub
 - [ ] Deploy concluído com sucesso
 - [ ] Site acessível via URL do Netlify
@@ -328,6 +356,7 @@ git push
 - [ ] Usuário administrador convidado e ativado
 
 ### ✅ Decap CMS
+
 - [ ] Interface do CMS acessível em `/admin`
 - [ ] Login funcionando
 - [ ] Consegue criar posts

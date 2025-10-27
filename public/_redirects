@@ -1,6 +1,5 @@
 ﻿# Redirecionar /admin para o arquivo estático do Decap CMS (força rewrite)
 /admin /admin/index.html 200!
 /admin/* /admin/:splat 200
-
-# Todas as outras rotas vão para o Angular
-/* /index.html 200
+# NOTA: Com SSR Angular no Netlify, Edge Functions lidam automaticamente
+# com as rotas. Não inclua /* /index.html aqui para SSR funcionar corretamente.
